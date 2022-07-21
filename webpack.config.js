@@ -1,0 +1,48 @@
+const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+
+module.exports = function (env, argv) {
+    const isProduction = argv.mode === "production";
+    const isDevelopment = !isProduction;
+
+    console.log(argv);
+    return {
+        output: {
+            path: path.join(__dirname, '/dist'),
+            filename: '[name].js'
+        },
+        devServer: {
+            port: 8000,
+
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.(js|jsx)$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: "babel-loader"
+                    }
+                },
+                {
+                    test: /\.scss$/,
+                    use: [
+                        isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+                        "css-loader",
+                        "sass-loader"
+                    ]
+                }
+            ]
+        },
+        plugins: [
+            new MiniCssExtractPlugin({
+            }),
+            new HtmlWebpackPlugin({
+                template: './src/index.html',
+                
+            })
+        ]
+    };
+
+}
