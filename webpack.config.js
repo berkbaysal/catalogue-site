@@ -10,7 +10,7 @@ module.exports = function (env, argv) {
     return {
         output: {
             path: path.join(__dirname, '/dist'),
-            filename: '[name].js'
+            filename: '[name][hash].js'
         },
         devServer: {
             port: 8000,
