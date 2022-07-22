@@ -6,11 +6,11 @@ module.exports = function (env, argv) {
     const isProduction = argv.mode === "production";
     const isDevelopment = !isProduction;
 
-    console.log(argv);
     return {
         output: {
             path: path.join(__dirname, '/dist'),
-            filename: '[name][hash].js'
+            filename: '[name][contenthash:8].js'
+
         },
         devServer: {
             port: 8000,
@@ -31,16 +31,26 @@ module.exports = function (env, argv) {
                         isProduction ? MiniCssExtractPlugin.loader : "style-loader",
                         "css-loader",
                         "sass-loader"
-                    ]
+                    ],
+                },
+                {
+                    test:/\.(png|jpg|jpeg|gif)/,
+                    loader: "file-loader",
+                    options: {
+                        outputPath: "./assets/img",
+                        publicPath:"../assets/img"
+                    }   
                 }
+
             ]
         },
         plugins: [
             new MiniCssExtractPlugin({
+                filename: "assets/css/[name][contenthash:8].css"
             }),
             new HtmlWebpackPlugin({
-                template: './src/index.html',
-                
+                template: './public/index.html',
+                filename: (isDevelopment ? "index.html" : "./public/index.html")
             })
         ]
     };
