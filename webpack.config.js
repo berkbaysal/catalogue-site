@@ -9,12 +9,12 @@ module.exports = function (env, argv) {
     return {
         output: {
             path: path.join(__dirname, '/dist'),
-            filename: '[name][contenthash:8].js'
-
+            filename: '[name][contenthash:8].js',
+            publicPath: "/"
         },
         devServer: {
-            port: 8000,
-
+            port: 9000,
+            historyApiFallback: true
         },
         module: {
             rules: [
