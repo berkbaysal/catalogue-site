@@ -1,0 +1,17 @@
+.catalogue-configuration{
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    padding: 4%;
+    .desktop-sizing{
+        width: 33.3333333333%;
+        height: 100%;
+    }
+    .layout-config,.component-config{
+        background-color: black;
+    }
+    .color-config{
+       
+    }
+}
