@@ -7,10 +7,11 @@ import Button from './Button';
 function Configure() {
 
     const [colors, setColors] = React.useState(ColorPalette);
-    
+    const [activePicker,setActivePicker] = React.useState("");
+    console.log(colors);
     const colorsDisplay = colors.map(option => {
         return (
-            <ColorOption label={option.label} color={option.color} setColors={setColors} key={option.label}/>
+            <ColorOption label={option.label} color={option.color} colorHex = {option.colorHex} setColors={setColors} key={option.label} activePicker={activePicker} setActivePicker={setActivePicker}/>
         )
     })
 
