@@ -1,0 +1,26 @@
+.color-picker-container{
+    width: 80%;
+    height: 10rem;
+    background-color: #D9D9D9;
+    display: flex;
+    padding: 1rem;
+    .saturation-container{
+        position: relative;
+        width: 40%;
+        height: 100%;
+        
+    }
+    .hue-container{
+        position: relative;
+        width: 0.5rem;
+        height: 100%;
+        border-radius: 5px;
+    }
+
+    .color-picker-slider{
+        background-color: white;
+        height: 1rem;
+        width: 1rem;
+        margin-top: 50%;
+    }
+}

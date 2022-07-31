@@ -1,26 +1,27 @@
 import React from 'react'
 import "../css/ColorOption.scss"
+import ColorUI from './ColorUI';
 
-function ColorOption({label,colorValue,setColors}) {
+function ColorOption({ label, color, setColors }) {
 
-  function handleChange(e){
+  function handleChange(e) {
     let newColors = [];
     setColors((oldColors) => {
-      oldColors.forEach(color=>{
-        if(color.label === label){
-          let newVal = e.target.value;
-          if(e.target.value === ""){
+      oldColors.forEach(color => {
+        if (color.label === label) {
+          let newVal = e.target.value.toUpperCase();
+          if (e.target.value === "") {
             newVal = "#";
           }
-          else if(e.target.value[0] !== "#"){
-            newVal = "#" + e.target.value;
+          else if (e.target.value[0] !== "#") {
+            newVal = "#" + e.target.value.toUpperCase();
           }
-          else if(e.target.value.length > 7){
-            newVal = e.target.value.slice(0,7);
+          else if (e.target.value.length > 7) {
+            newVal = e.target.value.slice(0, 7).toUpperCase();
           }
-          newColors.push({label:label,colorValue:newVal})
+          newColors.push({ label: label, color: newVal })
         }
-        else{
+        else {
           newColors.push(color);
         }
       })
@@ -30,11 +31,16 @@ function ColorOption({label,colorValue,setColors}) {
 
   return (
     <div className='color-option'>
-        <div className="color-display" style={{backgroundColor: colorValue}}></div>
+      <div className="simple-ui">
+        <div className="color-display" style={{ backgroundColor: color }}></div>
         <div className="color-info">
-            <div className="color-label">{label}</div>
-            <input className="color-code" value={colorValue} onChange={handleChange}></input>
+          <div className="color-label">{label}</div>
+          <input className="color-code" value={color} onChange={handleChange}></input>
         </div>
+      </div>
+      <div className="detailed-ui">
+        <ColorUI color={color} label={label} setColors={setColors}/>
+      </div>
     </div>
   )
 }

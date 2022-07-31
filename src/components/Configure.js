@@ -7,13 +7,12 @@ import Button from './Button';
 function Configure() {
 
     const [colors, setColors] = React.useState(ColorPalette);
-
+    
     const colorsDisplay = colors.map(option => {
         return (
-            <ColorOption label={option.label} colorValue={option.colorValue} setColors={setColors} />
+            <ColorOption label={option.label} color={option.color} setColors={setColors} key={option.label}/>
         )
     })
-
 
     return (
         <div className="catalogue-configuration">
