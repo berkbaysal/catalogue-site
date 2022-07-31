@@ -8,7 +8,7 @@ export default [
         componentCategory: "Video"
     },
     {
-        componentName:"Ableton Style Video Player",
+        componentName:"Ableton Style Image Box",
         componentCategory: "Video"
     },
     {
