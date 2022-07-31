@@ -8,11 +8,11 @@
         width: 33.3333333333%;
         height: 100%;
     }
-    .layout-config,.component-config{
+    .component-config{
         background-color: black;
     }
     .config-head{
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
     .color-config{
        
@@ -28,5 +28,20 @@
         margin-top: 2rem;
         width: 60%;
         font-size: 0.9rem;
+    }
+    .config-sub-head{
+        font-size: 1.1rem;
+    }
+    .btn.--inactive{
+        background-color: #D9D9D9;
+        color: black;
+    }
+
+    .layout-config{
+
+        padding:0 4%;
+        .btn{
+            margin:1rem 0;
+        }
     }
 }
