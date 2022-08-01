@@ -38,6 +38,7 @@ function Configure() {
     }
     function handleClick(index) {
         setActiveConfigure({ layoutObject: layout[index], index: index });
+
     }
     return (
         <div className="catalogue-configuration">
@@ -96,13 +97,13 @@ function Configure() {
             </div>
             <div className="component-config desktop-sizing">
                 <h1 className='config-head'>Current Configuration:</h1>
-                {/* <h3 className="config-sub-head">Choose or add a component to start configuring.</h3> */}
-                {activeConfigure.layoutObject && <ConfigureUI
-                    activeComponent={activeConfigure.layoutObject}
-                    activeIndex={activeConfigure.index}
-                    setLayout={setLayout}
-                    setActiveConfigure={setActiveConfigure} />}
                 {!activeConfigure.layoutObject && <h3 className="config-sub-head">Choose or add a component to start configuring.</h3>}
+                {activeConfigure.layoutObject &&
+                    <ConfigureUI
+                        activeComponent={activeConfigure.layoutObject}
+                        activeIndex={activeConfigure.index}
+                        setLayout={setLayout}
+                        setActiveConfigure={setActiveConfigure} />}
             </div>
         </div>
     )

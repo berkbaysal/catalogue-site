@@ -6,19 +6,19 @@ import Button from './Button';
 
 function ConfigureUI({ activeComponent, setLayout, setActiveConfigure, activeIndex }) {
 
-
-    const [currentInputs, setCurrentInputs] = React.useState(activeComponent);
-
+    const originalOptions = activeComponent.options.map((item,index)=>({...item}));
+    const [currentInputs, setCurrentInputs] = React.useState([...originalOptions]);
 
     function cancelConfig(){
-        setActiveConfigure({ object: null, index: null })
+        setCurrentInputs(activeComponent);
+        setActiveConfigure({ layoutObject: null, index: null })
     }
     function saveConfig(){
         let newLayout = [];
         setLayout((oldLayout)=>{
             oldLayout.forEach((item,index)=>{
                 if(index===activeIndex){
-                    newLayout.push(currentInputs);
+                    newLayout.push({...activeComponent,options:currentInputs});
                 }
                 else{
                     newLayout.push(item);
@@ -28,7 +28,7 @@ function ConfigureUI({ activeComponent, setLayout, setActiveConfigure, activeInd
         })
         cancelConfig();
     }
-    const componentSettings = activeComponent.options.map((option, index) => {
+    const componentSettings = currentInputs.map((option, index) => {
         switch (option.optionType) {
             case ("url"):
                 return <SingleLineText
@@ -52,12 +52,15 @@ function ConfigureUI({ activeComponent, setLayout, setActiveConfigure, activeInd
 
     function handleOptionChange(e, setCurrentInputs, optionIndex) {
         setCurrentInputs((oldObj) => {
-            let newOptions = [...oldObj.options];
+            let newOptions = [...oldObj];
             newOptions[optionIndex].optionOverride = e.target.value;
             newOptions[optionIndex].optionHasOverride = true;
-            return { ...oldObj, options: newOptions };
+            return newOptions;
         })
     }
+
+    React.useEffect(()=>{setCurrentInputs([...originalOptions])},[activeComponent])
+    
     return (
         <div className="configuration-menu-container">
             <div className="configuration-dropdown-section">
