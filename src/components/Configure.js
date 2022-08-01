@@ -5,6 +5,7 @@ import ColorPalette from '../data/ColorPalette'
 import DefaultLayoutSetup from '../data/DefaultLayoutSetup'
 import Button from './Button';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
+import ConfigureUI from './ConfigureUI'
 
 function Configure() {
 
@@ -53,7 +54,7 @@ function Configure() {
                 </div>
                 <div className="layout-config-body">
                     <h3 className="config-sub-head">Body:</h3>
-                    <DragDropContext onDragEnd={handleOnDragEnd}>
+                    <DragDropContext onDragEnd={handleOnDragEnd}> {/*DRAGABLE ZONE STARTS HERE*/}
                         <Droppable droppableId='body-list'>
                             {(provided) => (
                                 <div className='body-list-drop-area' {...provided.droppableProps} ref={provided.innerRef}>
@@ -75,15 +76,21 @@ function Configure() {
                                 </div>
                             )}
                         </Droppable>
-                    </DragDropContext>
+                    </DragDropContext> {/*DRAGABLE ZONE ENDS HERE*/}
                     <Button label="Add New Component" />
                 </div>
                 <div className="layout-config-footer">
                     <h3 className="config-sub-head">Footer:</h3>
                     {<Button label={layout[layoutDisplay.length - 1].componentName} key={layoutDisplay.length - 1} addClass="--inactive" />}
                 </div>
+                <div className="footnote">You can re-arrange body components by dragging and dropping. You can edit or remove each individual component by clicking on it and opening the configuration menu.
+                    <br /><br />Note: You must have a footer and a navigation menu.</div>
             </div>
-            <div className="component-config desktop-sizing"></div>
+            <div className="component-config desktop-sizing">
+                <h1 className='config-head'>Current Configuration:</h1>
+                {/* <h3 className="config-sub-head">Choose or add a component to start configuring.</h3> */}
+                 <ConfigureUI activeComponent = {layout[1]}/>
+            </div>
         </div>
     )
 }

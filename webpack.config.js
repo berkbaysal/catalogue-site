@@ -10,7 +10,7 @@ module.exports = function (env, argv) {
         output: {
             path: path.join(__dirname, '/dist'),
             filename: '[name][contenthash:8].js',
-            publicPath: "/"
+            publicPath: (isDevelopment ? "/":"../")
         },
         devServer: {
             port: 9000,

@@ -1,0 +1,37 @@
+.configuration-menu-container{
+    .configuration-dropdown-section{
+        display:flex;
+    }
+    .configuration-dropdown{
+        border: none;
+        height: 1.7rem;
+        font-family: inherit;
+        font-size: 0.9rem;
+        width: 100%;
+        margin-top: 0.5rem;
+        border-radius: 5px;
+        text-indent: 3px;
+    }
+    .type-configuration-dropdown{
+        margin-right: 5%;
+        width: 35%;   
+    }
+    .style-configuration-dropdown{
+        width: 60%;
+    }
+    .option-container{
+        margin-top: 2rem;
+    }
+    .input-field{
+        border: 0.2rem solid #D9D9D9;
+        border-radius: 7px;
+        height: 1.8rem;
+        margin-top:1rem;
+        font-family: inherit;
+        text-indent: 0.2rem;
+        width: 100%;
+    }
+    .config-sub-text{
+        margin-top: 1rem;
+    }
+}
