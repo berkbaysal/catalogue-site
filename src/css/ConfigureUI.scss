@@ -23,15 +23,51 @@
         margin-top: 2rem;
     }
     .input-field{
-        border: 0.2rem solid #D9D9D9;
-        border-radius: 7px;
         height: 1.8rem;
-        margin-top:1rem;
+        margin:1rem 0;
         font-family: inherit;
         text-indent: 0.2rem;
         width: 100%;
     }
+    .slider-ui-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 4rem;
+        margin: 1rem 0;
+    }
+    .slider-container{
+        margin-left: 1rem;
+        width: 60%;
+    }
+    .input-slider{
+        width: 100%;
+    }
+    .slider-value-container{
+        margin:1rem 0;
+        font-family: inherit;
+        text-indent: 0.2rem;
+        width: 5rem;
+        text-align: right;
+        fieldset {
+            legend {
+                width: 0;
+            }
+        }
+    }
+    .input-label-value{
+       height: 3rem;
+    }
     .config-sub-text{
         margin-top: 1rem;
     }
+    .configuration-static-buttons{
+        margin-top: 3rem;
+        display: flex;
+        justify-content: space-between;
+        .half-button{
+            width: 45%;
+        }
+    }
+
 }

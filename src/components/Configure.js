@@ -2,16 +2,17 @@ import React from 'react'
 import "../css/Configure.scss"
 import ColorOption from './ColorOption'
 import ColorPalette from '../data/ColorPalette'
-import DefaultLayoutSetup from '../data/DefaultLayoutSetup'
 import Button from './Button';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 import ConfigureUI from './ConfigureUI'
+import ComponentCatalogue from '../data/ComponentCatalogue';
 
 function Configure() {
-
-    const [colors, setColors] = React.useState(ColorPalette);
-    const [activePicker, setActivePicker] = React.useState("");
-    const [layout, setLayout] = React.useState(DefaultLayoutSetup);
+    const DefaultLayoutSetup = ["ableton-style-navigation-menu", "ableton-style-video-player", "ableton-style-footer"]
+    const [colors, setColors] = React.useState(ColorPalette); //Data of color configuration
+    const [activePicker, setActivePicker] = React.useState(""); //Data for color picker UI
+    const [layout, setLayout] = React.useState(DefaultLayoutSetup.map(item => (ComponentCatalogue[item]))); //Data of currently selected layout
+    const [activeConfigure, setActiveConfigure] = React.useState({ layoutObject: null, index: null }) //Index of the element in layout currently being configured
     const colorsDisplay = colors.map(option => {
         return (
             <ColorOption label={option.label} color={option.color} colorHex={option.colorHex} setColors={setColors} key={option.label} activePicker={activePicker} setActivePicker={setActivePicker} />
@@ -32,9 +33,11 @@ function Configure() {
         const items = Array.from(layout);
         const [reordered] = items.splice(e.source.index, 1);
         items.splice(e.destination.index, 0, reordered);
-        console.log(items);
         setLayout(items);
 
+    }
+    function handleClick(index) {
+        setActiveConfigure({ layoutObject: layout[index], index: index });
     }
     return (
         <div className="catalogue-configuration">
@@ -50,7 +53,9 @@ function Configure() {
                 <h1 className='config-head'>Current Configuration:</h1>
                 <div className="layout-config-navigation">
                     <h3 className="config-sub-head">Navigation:</h3>
-                    {<Button label={layout[0].componentName} key={0} addClass="--inactive" />}
+                    <div className="wrapper" onClick={(e) => { handleClick(0) }}>
+                        {<Button label={layout[0].componentName}
+                            key={0} addClass={0 === activeConfigure.index ? "--configuring" : "--inactive"} />}</div>
                 </div>
                 <div className="layout-config-body">
                     <h3 className="config-sub-head">Body:</h3>
@@ -65,8 +70,11 @@ function Configure() {
                                         return (
                                             <Draggable key={item.componentName + index.toString()} draggableId={item.componentName + index.toString()} index={index}>
                                                 {(provided) => (
-                                                    <div className='dragable-button'{...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} id={index} >
-                                                        {<Button label={item.componentName} key={index} addClass="--inactive" />}
+                                                    <div className='dragable-button'{...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} id={index} onClick={(e) => { handleClick(index) }}>
+                                                        {<Button
+                                                            label={item.componentName}
+                                                            key={index}
+                                                            addClass={index === activeConfigure.index ? "--configuring" : "--inactive"} />}
                                                     </div>
                                                 )}
                                             </Draggable>
@@ -81,7 +89,7 @@ function Configure() {
                 </div>
                 <div className="layout-config-footer">
                     <h3 className="config-sub-head">Footer:</h3>
-                    {<Button label={layout[layoutDisplay.length - 1].componentName} key={layoutDisplay.length - 1} addClass="--inactive" />}
+                    <div className="wrapper" onClick={(e) => { handleClick(layoutDisplay.length - 1) }}>{<Button label={layout[layoutDisplay.length - 1].componentName} key={layoutDisplay.length - 1} addClass={layoutDisplay.length - 1 === activeConfigure.index ? "--configuring" : "--inactive"} />}</div>
                 </div>
                 <div className="footnote">You can re-arrange body components by dragging and dropping. You can edit or remove each individual component by clicking on it and opening the configuration menu.
                     <br /><br />Note: You must have a footer and a navigation menu.</div>
@@ -89,7 +97,12 @@ function Configure() {
             <div className="component-config desktop-sizing">
                 <h1 className='config-head'>Current Configuration:</h1>
                 {/* <h3 className="config-sub-head">Choose or add a component to start configuring.</h3> */}
-                 <ConfigureUI activeComponent = {layout[1]}/>
+                {activeConfigure.layoutObject && <ConfigureUI
+                    activeComponent={activeConfigure.layoutObject}
+                    activeIndex={activeConfigure.index}
+                    setLayout={setLayout}
+                    setActiveConfigure={setActiveConfigure} />}
+                {!activeConfigure.layoutObject && <h3 className="config-sub-head">Choose or add a component to start configuring.</h3>}
             </div>
         </div>
     )

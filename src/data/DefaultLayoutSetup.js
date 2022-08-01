@@ -5,10 +5,10 @@ export default [
         options: [
             {
                 optionName: "Logo",
-                optionType: "URL",
+                optionType: "url",
                 optionText: "Provide a URL for your logo.",
                 optionDefault: "",
-                optionOverriden: false,
+                optionHasOverride: false,
                 optionOverride: "",
                 optionPlaceholder: ""
             }
@@ -21,12 +21,20 @@ export default [
         options: [
             {
                 optionName: "Youtube Video ID",
-                optionType: "URL",
+                optionType: "url",
                 optionText: "Provide the Youtube Video ID for your desired video.",
                 optionDefault: "",
-                optionOverriden: false,
+                optionHasOverride: false,
                 optionOverride: "",
                 optionPlaceholder: "dQw4w9WgXcQ"
+            },            {
+                optionName: "Video Player Width",
+                optionType: "slider",
+                optionText: "Choose how wide your video player should be. (percent of webpage body)",
+                optionDefault: 66,
+                optionHasOverride: false,
+                optionOverride: "",
+                optionPlaceholder: ""
             }
         ]
     },
