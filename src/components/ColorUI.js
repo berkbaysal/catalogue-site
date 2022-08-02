@@ -6,11 +6,11 @@ import { useSelector, useDispatch } from "react-redux"
 var convert = require("color-convert");
 
 
-
 function ColorUI(props) {
 
     var { Saturation, Hue } = require('react-color/lib/components/common');
     const colors = useSelector((state) => state.colors.value)
+    const activeColorPicker = useSelector((state) => state.activeColorPicker.value)
     const dispatch = useDispatch();
 
     let pointer = {
@@ -39,8 +39,8 @@ function ColorUI(props) {
 
     }
     return (
-        <div className='color-picker-container' style={props.activePicker===colors[props.index].label ? {padding: "0.8rem"} : { height: "0", padding: "0" }}>
-            {props.activePicker===colors[props.index].label && <><div className="saturation-container">
+        <div className='color-picker-container' style={activeColorPicker===colors[props.index].label ? {padding: "0.8rem"} : { height: "0", padding: "0" }}>
+            {activeColorPicker===colors[props.index].label && <><div className="saturation-container">
                 <Saturation {...props} onChange={handleChange} pointer={customPointer} />
             </div><div className='hue-container'>
                     <Hue {...props} direction="vertical" onChange={handleChange} pointer={customSlider} />

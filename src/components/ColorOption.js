@@ -3,14 +3,14 @@ import "../css/ColorOption.scss"
 import ColorUI from './ColorUI';
 import { useSelector, useDispatch } from "react-redux"
 import { changeColors } from "../features/color"
+import {changeActiveColorPicker} from "../features/activeColorPicker"
 
 
-function ColorOption({ index, activePicker, setActivePicker }) {
-
+function ColorOption({ index }) {
 
   const colors = useSelector((state) => state.colors.value)
+  const activeColorPicker = useSelector((state) => state.activeColorPicker.value)
   const dispatch = useDispatch();
-  console.log(colors);
 
   function handleChange(e) {
     let newValue = e.target.value.toUpperCase();
@@ -28,11 +28,11 @@ function ColorOption({ index, activePicker, setActivePicker }) {
   }
 
   function toggleActive() {
-    if (activePicker === colors[index].label) {
-      setActivePicker("");
+    if (activeColorPicker === colors[index].label) {
+      dispatch(changeActiveColorPicker(""));
     }
     else {
-      setActivePicker(colors[index].label);
+      dispatch(changeActiveColorPicker(colors[index].label));
     }
   }
 
@@ -46,7 +46,7 @@ function ColorOption({ index, activePicker, setActivePicker }) {
         </div>
       </div>
       <div className="detailed-ui">
-        <ColorUI index={index} activePicker={activePicker} {...colors[index]}/>
+        <ColorUI index={index} {...colors[index]}/>
       </div>
     </div>
   )

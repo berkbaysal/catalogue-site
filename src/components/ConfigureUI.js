@@ -4,8 +4,13 @@ import SliderConfig from './ConfigurationSetups/SliderConfig';
 import SingleLineText from './ConfigurationSetups/SingleLineText';
 import Button from './Button';
 import ComponentCatalogue from '../data/ComponentCatalogue';
+import { useSelector, useDispatch } from "react-redux"
+import { setLayout, updateLayoutItem, deleteLayoutItem } from "..//features/layout"
 
-function ConfigureUI({ activeComponent, setLayout, setActiveConfigure, activeIndex }) {
+function ConfigureUI({ activeComponent, setActiveConfigure, activeIndex }) {
+
+    const layout = useSelector((state) => state.layout.value)
+    const dispatch = useDispatch();
 
     let originalOptions = activeComponent.options.map((item, index) => ({ ...item }));
     const [currentInputs, setCurrentInputs] = React.useState({ ...activeComponent, options: [...originalOptions] });
@@ -90,18 +95,7 @@ function ConfigureUI({ activeComponent, setLayout, setActiveConfigure, activeInd
         setActiveConfigure({ layoutObject: null, index: null })
     }
     function saveConfig() {
-        let newLayout = [];
-        setLayout((oldLayout) => {
-            oldLayout.forEach((item, index) => {
-                if (index === activeIndex) {
-                    newLayout.push(currentInputs);
-                }
-                else {
-                    newLayout.push(item);
-                }
-            })
-            return (newLayout)
-        })
+        dispatch(updateLayoutItem({index:activeIndex, updatedItem:currentInputs}));
         cancelConfig();
     }
 
@@ -115,15 +109,7 @@ function ConfigureUI({ activeComponent, setLayout, setActiveConfigure, activeInd
     }
 
     function deleteComponent() {
-        let newLayout = [];
-        setLayout((oldLayout) => {
-            oldLayout.forEach((item, index) => {
-                if (index !== activeIndex) {
-                    newLayout.push(item);
-                }
-            })
-            return newLayout;
-        })
+        dispatch(deleteLayoutItem({index:activeIndex}));
         cancelConfig();
     }
 

@@ -7,11 +7,13 @@ import { configureStore } from "@reduxjs/toolkit/";
 import { Provider } from "react-redux";
 import colorsReducer from "./features/color"
 import layoutReducer from "./features/layout";
+import activeColorPickerReducer from "./features/activeColorPicker";
 
 const store = configureStore({
     reducer: {
         colors: colorsReducer,
-        layout: layoutReducer
+        layout: layoutReducer,
+        activeColorPicker: activeColorPickerReducer
     }
 })
 

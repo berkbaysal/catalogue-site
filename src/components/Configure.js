@@ -5,22 +5,19 @@ import Button from './Button';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 import ConfigureUI from './ConfigureUI'
 import ComponentCatalogue from '../data/ComponentCatalogue';
-import {useSelector , useDispatch} from "react-redux"
-import {resetDefaultColors} from "../features/color"
+import { useSelector, useDispatch } from "react-redux"
+import { resetDefaultColors } from "../features/color"
+import { setLayout, addNewItemToLayout } from "..//features/layout"
 
 function Configure() {
     const colors = useSelector((state) => state.colors.value)
+    const layout = useSelector((state) => state.layout.value)
     const dispatch = useDispatch();
 
-   
-
-    const DefaultLayoutSetup = ["ableton-style-navigation-menu", "ableton-style-video-player", "ableton-style-footer"]
-    const [activePicker, setActivePicker] = React.useState(""); //Data for color picker UI
-    const [layout, setLayout] = React.useState(DefaultLayoutSetup); //Data of currently selected layout
     const [activeConfigure, setActiveConfigure] = React.useState({ layoutObject: null, index: null }) //Index of the element in layout currently being configured
-    const colorsDisplay = colors.map((option,index) => {
+    const colorsDisplay = colors.map((option, index) => {
         return (
-            <ColorOption index={index} key={option.label} activePicker={activePicker} setActivePicker={setActivePicker} />
+            <ColorOption index={index} key={option.label}/>
         )
     })
     const layoutDisplay = layout.map((item, index) => {
@@ -28,16 +25,13 @@ function Configure() {
             <Button label={item.componentName} key={index} addClass="--inactive" />
         )
     })
-    function resetColors() {
-        dispatch(resetDefaultColors());
-    }
 
     function handleOnDragEnd(e) {
         if (!e.destination) return;
         const items = Array.from(layout);
         const [reordered] = items.splice(e.source.index, 1);
         items.splice(e.destination.index, 0, reordered);
-        setLayout(items);
+        dispatch(setLayout(items));
 
     }
     function handleClick(index) {
@@ -48,24 +42,15 @@ function Configure() {
             setActiveConfigure({ layoutObject: layout[index], index: index });
         }
     }
-    function addNewComponent(){
-        const filteredCatalogue = ComponentCatalogue.filter(item => !["Navigation","Footer"].includes(item.componentCategory));
-        setLayout((oldLayout)=>{
-            let newLayout = oldLayout.slice(0,oldLayout.length-1);
-            newLayout.push(filteredCatalogue[0]);
-            newLayout.push(oldLayout[oldLayout.length-1]);
-            return newLayout;
-        })
-        
-    }
-   
+
+
     return (
         <div className="catalogue-configuration">
             <div className="color-config desktop-sizing">
                 <h1 className='config-head'>Color Theme:</h1>
                 {colorsDisplay}
                 <div className="btn-container">
-                    <Button label="Reset Default Colors" onClick={resetColors } />
+                    <Button label="Reset Default Colors" onClick={()=>{dispatch(resetDefaultColors())}} />
                 </div>
                 <div className="footnote">Not all components use all of the colors in the theme. Depending on your configuration, certain colors may not appear in the layout.</div>
             </div>
@@ -74,8 +59,7 @@ function Configure() {
                 <div className="layout-config-navigation">
                     <h3 className="config-sub-head">Navigation:</h3>
                     <div className="wrapper" onClick={(e) => { handleClick(0) }}>
-                        {<Button label={layout[0].componentName}
-                            key={0} addClass={0 === activeConfigure.index ? "--configuring" : "--inactive"} />}</div>
+                        {<Button label={layout[0].componentName} key={0} addClass={0 === activeConfigure.index ? "--configuring" : "--inactive"} />}</div>
                 </div>
                 <div className="layout-config-body">
                     <h3 className="config-sub-head">Body:</h3>
@@ -105,7 +89,7 @@ function Configure() {
                             )}
                         </Droppable>
                     </DragDropContext> {/*DRAGABLE ZONE ENDS HERE*/}
-                    <div className="wrapper" onClick={addNewComponent}><Button label="Add New Component" /></div>
+                    <div className="wrapper" onClick={()=>{dispatch(addNewItemToLayout())}}><Button label="Add New Component" /></div>
                 </div>
                 <div className="layout-config-footer">
                     <h3 className="config-sub-head">Footer:</h3>
@@ -121,7 +105,6 @@ function Configure() {
                     <ConfigureUI
                         activeComponent={activeConfigure.layoutObject}
                         activeIndex={activeConfigure.index}
-                        setLayout={setLayout}
                         setActiveConfigure={setActiveConfigure} />}
             </div>
         </div>
