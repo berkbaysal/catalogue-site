@@ -40,6 +40,11 @@ module.exports = function (env, argv) {
                         outputPath: "./assets/img",
                         publicPath:"../assets/img"
                     }   
+                },
+                {
+                    test: /\.svg$/i,
+                    issuer: /\.[jt]sx?$/,
+                    use: ['@svgr/webpack'],
                 }
 
             ]

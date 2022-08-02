@@ -1,17 +1,27 @@
 import React from "react"
 import Configure from "./components/Configure";
-import {configureStore} from "@reduxjs/toolkit";
-
-
-
+import { configureStore } from "@reduxjs/toolkit";
+import { Fab } from "@mui/material";
+import SettingsIcon from '@mui/icons-material/Settings';
+import CloseIcon from '@mui/icons-material/Close';
+import PageBuilder from "./components/PageBuilder";
 
 
 function App() {
+    const [settingsMenuOpen, setSettingsMenuOpen] = React.useState(true);
 
-    return ( 
-    <div className="app-container">
-        <Configure/>
-    </div> );
+    function toggleSettingsMenu(){
+        setSettingsMenuOpen((currentState)=>(!currentState));
+    }
+    return (
+        <div className="app-container">
+            <Fab size="medium" color={settingsMenuOpen ? "error" : "primary"} className="config-fab-button" onClick={toggleSettingsMenu}>
+                {settingsMenuOpen && <CloseIcon fontSize="medium" />}
+                {!settingsMenuOpen && <SettingsIcon fontSize="medium" />}
+            </Fab>
+            {settingsMenuOpen && <Configure />}
+            {!settingsMenuOpen && <PageBuilder/>}
+        </div>);
 }
 
 export default App;

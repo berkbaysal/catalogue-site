@@ -11,7 +11,8 @@ export default
                     optionDefault: "",
                     optionHasOverride: false,
                     optionOverride: "",
-                    optionPlaceholder: "ex: http://www.website.com/image.jpg"
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "logo"
                 },
             ],
         },

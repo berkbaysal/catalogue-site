@@ -1,11 +1,51 @@
+:root {
+    --highlight-one: #ff764d;
+    --highlight-two: #0000ff;
+    --page-background: #F3F3F3;
+    --accent-one: #fbffa7;
+    --accent-two: #D5B3FF;
+}
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+html {
+    background-color: var(--page-background);
+}
+
 body{
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     font-variant-ligatures: no-common-ligatures;
+}
+.app-container{
+    .config-fab-button{
+        position: absolute;
+        right:1rem;
+        top:1rem;
+        
+    }
+}
+
+.ableton-style{
+    background-color: white;
+    font-size: 16px;
+    font-family: "futura-pt", sans-serif;
+    max-width: 1600px;
+    margin: auto;
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .font-awesome-icon {
+        font-size: 0.8rem;
+    }
 }

@@ -1,27 +1,27 @@
 export default[
     {
         label:"Primary Hightlight",
-        color: "#EA9B24",
-        colorHex: "#EA9B24"
+        color: "#FF764D",
+        colorHex: "#FF764D"
     },
     {
         label:"Secondary Highlight",
-        color:"#3AB40F",
-        colorHex:"#3AB40F"
+        color:"#0000FF",
+        colorHex:"#0000FF"
     },
     {
         label:"Background (Deadspace)",
-        color:"#7B24EA",
-        colorHex:"#7B24EA"
+        color:"#F3F3F3",
+        colorHex:"#F3F3F3"
     },
     {
         label:"Accent One",
-        color:"#24A3EA",
-        colorHex:"#24A3EA"
+        color:"#FBFFA7",
+        colorHex:"#FBFFA7"
     },
     {
         label:"Accent Two",
-        color:"#EB653B",
-        colorHex:"#EB653B"
+        color:"#D5B3FF",
+        colorHex:"#D5B3FF"
     }
 ]
