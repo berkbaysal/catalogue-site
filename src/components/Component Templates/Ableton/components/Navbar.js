@@ -3,10 +3,58 @@ import Logo from "../assets/img/logo.svg";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "../css/Navbar.scss"
-import { imageListClasses } from "@mui/material";
 function Navbar(props) {
 
     const [navbarStatus, setNavbarStatus] = React.useState({ isSubMenuVisible: true, isHiddenMenuVisible: false, isSlidingMenuUp: true, isMobileModeActive: (window.innerWidth <= 950) })
+    const [activeMenuIndexes, setActiveMenuIndexes] = React.useState([6, 0, 4]);
+    const topMenuItems = ["Live", "Push", "Link", "Shop", "Packs", "Help", "More"]
+    const bottomMenuItems = [
+        ["Live 11", "All new features", "What is Live?", "Max for Live", "Learn Live", "Integrated hardware", "Compared editions", "But now"],
+        ["Overview", "What's new", "Making beats", "Playing notes and chords", "Sampling", "Design", "Tech specs", "Learn push", "But now"],
+        ["What is Link?", "Link-enabled products"],
+        ["Overview", "Live", "Push", "Educational offers", "Max for Live", "Making Music", "Merchandise"],
+        ["All", "Sounds", "Max for Live", "Software Instruments", "Free"],
+        ["Overview", "Learn Live", "Learn Push"],
+        ["About", "Jobs", "Apprenticeships"]
+    ]
+    const hiddenMenuItems = ["Blog", "Ableton for the Classroom", "Ableton for Collages and Universities", "Certified Training", "About Ableton", "Jobs", "Apprenticeships"]
+
+    const topMenu = []
+    topMenuItems.forEach((item, index) => {
+        if (item === "More") {
+            if (index === activeMenuIndexes[0]) {
+                topMenu.push(<li className="main-bar-item" key={"top-menu-" + index}><div className="hidden-menu-toggle active-link" onClick={toggleHiddenBar}>More {navbarStatus.isHiddenMenuVisible ? "-" : "+"}</div></li>)
+            }
+            else {
+                topMenu.push(<li className="main-bar-item" key={"top-menu-" + index}><div className="hidden-menu-toggle"  onClick={toggleHiddenBar}>More {navbarStatus.isHiddenMenuVisible ? "-" : "+"}</div></li>)
+            }
+        }
+        else if (index === activeMenuIndexes[0]) {
+            topMenu.push(<li className="main-bar-item" key={"top-menu-" + index}><a href="#" className="menu-category active-link">{item + (item === "More" ? "+" : "")}</a></li>)
+        }
+        else {
+            topMenu.push(<li className="main-bar-item" key={"top-menu-" + index}><a href="#" className="menu-category" onClick={()=>{setActiveMenuIndexes((currentIndexes)=>([index,0,-1]))}}>{item + (item === "More" ? "+" : "")}</a></li>)
+        }
+    })
+    const hiddenTopMenu = []
+    hiddenMenuItems.forEach((item,index)=>{
+        if(index === activeMenuIndexes[2]){
+            hiddenTopMenu.push(<li className="hidden-bar-top-menu-item" key={"top-hidden-menu-" + index}><a href="#" className="menu-category  active-link">{item}</a></li>)
+        }
+        else{
+            hiddenTopMenu.push(<li className="hidden-bar-top-menu-item"  key={"top-hidden-menu-" + index} onClick={()=>{setActiveMenuIndexes([6,0,index])}}><a href="#" className="menu-category">{item}</a></li>)
+        }
+    })
+    const bottomMenu = []
+    bottomMenuItems[activeMenuIndexes[0]].forEach((item,index)=>{
+        if(index === activeMenuIndexes[1]){
+            bottomMenu.push(<li className="sub-bar-item" key={"bottom-menu-" + index}><a href="#" className="menu-category active-link">{item}</a></li>)
+        }
+        else{
+            bottomMenu.push(<li className="sub-bar-item" key={"bottom-menu-" + index} onClick={()=>{setActiveMenuIndexes((currentIndexes)=>([currentIndexes[0],index,currentIndexes[0]]))}}><a href="#" className="menu-category">{item}</a></li>)
+        }
+        
+    })
 
     function toggleHiddenBar() {
         setNavbarStatus((oldStatus) => ({ ...oldStatus, isHiddenMenuVisible: !oldStatus.isHiddenMenuVisible }));
@@ -15,6 +63,7 @@ function Navbar(props) {
     function toggleSlidingMenu() {
         setNavbarStatus((oldStatus) => ({ ...oldStatus, isSlidingMenuUp: !oldStatus.isSlidingMenuUp }));
     }
+
 
     React.useEffect(() => {
         function checkForMobile() {
@@ -52,13 +101,7 @@ function Navbar(props) {
                                 {!logoLink && <Logo className="navbar-logo-expanded" />}
                             </div>
                             <ul className="main-bar-menu">
-                                <li className="main-bar-item"><a href="#" className="menu-category">Live</a></li>
-                                <li className="main-bar-item"><a href="#" className="menu-category">Push</a></li>
-                                <li className="main-bar-item"><a href="#" className="menu-category">Link</a></li>
-                                <li className="main-bar-item"><a href="#" className="menu-category">Shop</a></li>
-                                <li className="main-bar-item"><a href="#" className="menu-category">Packs</a></li>
-                                <li className="main-bar-item"><a href="#" className="menu-category">Help</a></li>
-                                <li className="main-bar-item"><div className="hidden-menu-toggle active-link" onClick={toggleHiddenBar}>More {navbarStatus.isHiddenMenuVisible ? "-" : "+"}</div></li>
+                                {topMenu}
                             </ul>
                         </div>
 
@@ -73,13 +116,7 @@ function Navbar(props) {
                                 More on our site:
                             </div>
                             <ul className="hidden-bar-top-menu">
-                                <li className="hidden-bar-top-menu-item"><a href="#" className="menu-category">Blog</a></li>
-                                <li className="hidden-bar-top-menu-item"><a href="#" className="menu-category">Ableton for the Classroom</a></li>
-                                <li className="hidden-bar-top-menu-item"><a href="#" className="menu-category">Ableton for Colleges and Universities</a></li>
-                                <li className="hidden-bar-top-menu-item"><a href="#" className="menu-category">Certified Training</a></li>
-                                <li className="hidden-bar-top-menu-item"><a href="#" className="menu-category active-link">About Ableton</a></li>
-                                <li className="hidden-bar-top-menu-item"><a href="#" className="menu-category">Jobs</a></li>
-                                <li className="hidden-bar-top-menu-item"><a href="#" className="menu-category">Apprenticeships</a></li>
+                                {hiddenTopMenu}
                             </ul>
                         </div>
                         <div className="lower-hidden-bar">
@@ -99,9 +136,7 @@ function Navbar(props) {
 
                 {navbarStatus.isSubMenuVisible && <div className="sub-bar">
                     <ul className="sub-bar-menu">
-                        <li className="sub-bar-item"><a href="#" className="menu-category active-link">About</a></li>
-                        <li className="sub-bar-item"><a href="#" className="menu-category">Jobs</a></li>
-                        <li className="sub-bar-item"><a href="#" className="menu-category">Apprenticeships</a></li>
+                        {bottomMenu}
                     </ul>
                 </div>}
             </nav>

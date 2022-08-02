@@ -22,7 +22,7 @@ function ConfigureUI() {
 
     const componentSettings = currentInputs.options.map((option, index) => {
         switch (option.optionType) {
-            case ("url"):
+            case ("single-line"):
                 return <SingleLineText
                     option={option}
                     key={"option-" + index}

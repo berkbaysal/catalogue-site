@@ -1,0 +1,77 @@
+.ableton-style-videobox {
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .video-container {
+        position: relative;
+
+        .play-icon {
+            position: absolute;
+            color: white;
+            font-size: 4.5rem;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 0.7;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .play-icon:hover {
+            opacity: 1;
+            font-size: 5rem;
+        }
+
+        .video-thumbnail {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .video-player {
+            width: 100%;
+        }
+
+        .video-label {
+            font-size: 0.9rem;
+        }
+    }
+
+}
+
+@media only screen and (max-width:1000px) {
+
+    .ableton-style-videobox {
+        padding: 3rem 2rem 3rem 2rem;
+
+        .video-container {
+            min-width: 90%;
+
+            .play-icon {
+                font-size: 4rem;
+            }
+
+            .play-icon:hover {
+                font-size: 4.5rem;
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width:750px) {
+    .ableton-style-videobox {
+        .video-container {
+            .play-icon {
+                font-size: 3rem;
+            }
+
+            .play-icon:hover {
+                font-size: 3.5rem;
+            }
+        }
+    }
+}

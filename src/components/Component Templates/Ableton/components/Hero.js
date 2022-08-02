@@ -1,13 +1,27 @@
 import React from "react";
-import heroImage from "../assets/img/hero-image.jpg"
-function Hero() {
+import HeroImage from "../assets/img/hero-image.jpg"
+import "../css/Hero.scss"
+
+function Hero(props) {
+
+    let heroImage;
+    let textOverlay = "Ableton";
+    if (props.heroImage) {
+        heroImage = props.heroImage;
+    }
+    if (props.textOverlay) {
+        textOverlay = props.textOverlay;
+    }
     return (
-    <section className="ableton-style-hero">
-        <div className="hero-image-container">
-            <img src={heroImage} alt="" className="hero-image" />
-            <h1 className="hero-image-overlay">Ableton</h1>
+        <div className="ableton-style">
+            <section className="ableton-style-hero">
+                <div className="hero-image-container">
+                    <img src={heroImage ? heroImage : HeroImage} alt="" className="hero-image" />
+                    <h1 className="hero-image-overlay">{textOverlay}</h1>
+                </div>
+            </section>
         </div>
-    </section>  );
+    );
 }
 
 export default Hero;

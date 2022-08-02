@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import ComponentCatalogue from '../data/ComponentCatalogue';
 
-const DefaultLayoutSetup = [ComponentCatalogue[0],ComponentCatalogue[3],ComponentCatalogue[2]];
+const DefaultLayoutSetup = [ComponentCatalogue[0],ComponentCatalogue[3],ComponentCatalogue[1],ComponentCatalogue[2]];
 
 export const layoutSlice = createSlice({
     name: "layout",

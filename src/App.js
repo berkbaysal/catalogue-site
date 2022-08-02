@@ -10,8 +10,8 @@ import PageBuilder from "./components/PageBuilder";
 function App() {
     const [settingsMenuOpen, setSettingsMenuOpen] = React.useState(true);
 
-    function toggleSettingsMenu(){
-        setSettingsMenuOpen((currentState)=>(!currentState));
+    function toggleSettingsMenu() {
+        setSettingsMenuOpen((currentState) => (!currentState));
     }
     return (
         <div className="app-container">
@@ -20,7 +20,9 @@ function App() {
                 {!settingsMenuOpen && <SettingsIcon fontSize="medium" />}
             </Fab>
             {settingsMenuOpen && <Configure />}
-            {!settingsMenuOpen && <PageBuilder/>}
+            <div className="page-builder-section" style={settingsMenuOpen ? {display:"none"}:{visibility:"unset"}}>
+                <PageBuilder />
+            </div>
         </div>);
 }
 
