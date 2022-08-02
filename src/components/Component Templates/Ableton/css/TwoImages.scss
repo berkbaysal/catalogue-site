@@ -1,0 +1,47 @@
+.ableton-style-two-images {
+    position: relative;
+    padding: 4rem 0;
+    
+
+    .image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+
+        .image-one {
+            padding: 10% 0 10% 10%;
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .image-two {
+            padding: 10%;
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+    }
+
+    .geometric-background {
+        position: absolute;
+        height: calc(100% - 5rem);
+        width: 60%;
+        background-color: var(--accent-one);
+        z-index: 0;
+    }
+}
+
+@media only screen and (max-width:750px) {
+    .ableton-style-two-images {
+        padding: 1rem 0;
+        .geometric-background{
+            height: calc(100% - 2rem);
+        }
+    }
+
+}

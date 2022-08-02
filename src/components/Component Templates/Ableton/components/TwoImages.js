@@ -1,28 +1,36 @@
 import React from "react";
-
+import ImageOne from "../assets/img/two-images-one.jpg"
+import ImageTwo from "../assets/img/two-images-two.jpg"
+import "../css/TwoImages.scss"
 
 function TwoImages(props) {
     let style = {};
-    if(props.backgroundAlign === "right"){
+    let align = "right";
+    if (props.align) {
+        align = props.align.toLowerCase();
+    }
+    if (align === "right") {
         style.right = 0;
     }
-    else if(props.backgroundAlign === "left"){
+    else if (align === "left") {
         style.left = 0;
     }
-    else if(props.backgroundAlign === "center"){
+    else if (align === "center") {
         style.left = "20%";
     }
-    if(props.backgroundColor){
+    if (props.backgroundColor) {
         style.backgroundColor = props.backgroundColor;
     }
-    
-    
+
+
     return (
-        <div className="ableton-style-two-images">
-            <div className="geometric-background" style={style}></div>
-            <div className="image-container">
-                <img src={props.content[0]} alt="" className="image-one" />
-                <img src={props.content[1]} alt="" className="image-two" />
+        <div className="ableton-style">
+            <div className="ableton-style-two-images">
+                <div className="geometric-background" style={style}></div>
+                <div className="image-container">
+                    <img src={props.imageOne ? props.imageOne : ImageOne} alt="" className="image-one" />
+                    <img src={props.imageTwo ? props.imageTwo : ImageTwo} alt="" className="image-two" />
+                </div>
             </div>
         </div>
     );

@@ -1,0 +1,63 @@
+.ableton-style-three-images {
+    display: flex;
+    flex-direction: row;
+    height: min(80vw, 1280px);
+    position: relative;
+    padding: 4rem 0;
+
+    .geometric-background {
+        position: absolute;
+        height: calc(100% - 5rem);
+        width: 70%;
+        background-color: var(--accent-one);
+        z-index: 0;
+    }
+
+    .image-container-left {
+        width: 50%;
+
+        .top-image,
+        .bottom-image {
+            display: flex;
+            height: 50%;
+            width: 100%;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+
+            .image-one,
+            .image-two {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                z-index: 1;
+                padding: 15% 10% 15% 10%;
+
+            }
+
+
+        }
+    }
+
+    .image-container-right {
+        width: 50%;
+
+        .image-three {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            z-index: 1;
+            padding: 35% 5% 35% 15%;
+        }
+
+    }
+
+    .image-container-left {
+        padding: 0% 0% 0% 10%;
+    }
+
+    .image-container-right {
+        padding: 0% 10% 0% 0%;
+    }
+}

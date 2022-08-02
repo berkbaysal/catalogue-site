@@ -2,6 +2,7 @@ import React from 'react'
 import "../css/ConfigureUI.scss"
 import SliderConfig from './ConfigurationSetups/SliderConfig';
 import SingleLineText from './ConfigurationSetups/SingleLineText';
+import SelectConfigOneLine from './ConfigurationSetups/SelectConfigOneLine';
 import Button from './Button';
 import ComponentCatalogue from '../data/ComponentCatalogue';
 import { useSelector, useDispatch } from "react-redux"
@@ -36,6 +37,15 @@ function ConfigureUI() {
                     optionIndex={index}
                     handleOptionChange={handleOptionChange}
                     setCurrentInputs={setCurrentInputs} />
+            case ("select"):
+                return <SelectConfigOneLine
+                    option={option}
+                    key={"option-" + index}
+                    optionIndex={index}
+                    optionChoices = {option.optionChoices}
+                    handleOptionChange={handleOptionChange}
+                    setCurrentInputs={setCurrentInputs} />
+                
         }
     })
 
@@ -79,13 +89,13 @@ function ConfigureUI() {
             <div className="configuration-dropdown-section">
                 <div className="type-configuration-dropdown">
                     <h3 className="config-sub-head">Type:</h3>
-                    <select className='configuration-dropdown' onChange={(e)=>{dispatch(changeSelectedType(e.target.value))}} value={activeConfiguration.selectedType} id="type-selector">
+                    <select className='configuration-dropdown' onChange={(e) => { dispatch(changeSelectedType(e.target.value)) }} value={activeConfiguration.selectedType} id="type-selector">
                         {displayTypes}
                     </select>
                 </div>
                 <div className="style-configuration-dropdown">
                     <h3 className="config-sub-head">Style:</h3>
-                    <select className='configuration-dropdown' onChange={(e)=>{dispatch(changeSelectedStyle(e.target.value))}} value={activeConfiguration.selectedStyle} id="style-selector">
+                    <select className='configuration-dropdown' onChange={(e) => { dispatch(changeSelectedStyle(e.target.value)) }} value={activeConfiguration.selectedStyle} id="style-selector">
                         {activeConfiguration.selectedStyle === null && <option value="" selected>Choose a style.</option>}
                         {displayStyles}
                     </select >

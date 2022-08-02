@@ -78,4 +78,18 @@
             background-color: #ff3d4a;
         }
     }
+    .input-select-container{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .input-select{
+            margin-left: 4rem;
+            fieldset {
+                legend {
+                    width: 0;
+                }
+            }
+        }
+    }
+
 }

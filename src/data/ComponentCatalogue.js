@@ -115,7 +115,8 @@ export default
                     optionDefault: "",
                     optionHasOverride: false,
                     optionOverride: "",
-                    optionPlaceholder: "ex: http://www.website.com/image.jpg"
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "imageOne"
                 },
                 {
                     optionName: "Image Two",
@@ -124,12 +125,24 @@ export default
                     optionDefault: "",
                     optionHasOverride: false,
                     optionOverride: "",
-                    optionPlaceholder: "ex: http://www.website.com/image.jpg"
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "imageTwo"
                 },
+                {
+                    optionName: "Background Shape Alignment",
+                    optionType: "select",
+                    optionText: "Provide a URL for your second image.",
+                    optionDefault: "Right",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "Background Alignment",
+                    optionChoices: ["Right","Left","Center"],
+                    optionProp: "align"
+                }
             ],
         },
         {
-            componentName: "Ableton Style One Images",
+            componentName: "Ableton Style Three Images",
             componentCategory: "Image",
             options: [
                 {
@@ -139,9 +152,41 @@ export default
                     optionDefault: "",
                     optionHasOverride: false,
                     optionOverride: "",
-                    optionPlaceholder: "ex: http://www.website.com/image.jpg"
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "imageOne"
                 },
-
+                {
+                    optionName: "Image Two",
+                    optionType: "single-line",
+                    optionText: "Provide a URL for your second image.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "imageTwo"
+                },
+                {
+                    optionName: "Image Three",
+                    optionType: "single-line",
+                    optionText: "Provide a URL for your second image.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "imageThree"
+                },
+                {
+                    optionName: "Background Shape Alignment",
+                    optionType: "select",
+                    optionText: "Provide a URL for your second image.",
+                    optionDefault: "Right",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "Background Alignment",
+                    optionChoices: ["Right","Left","Center"],
+                    optionProp: "align"
+                }
             ],
-        }
+        },
+        
     ]

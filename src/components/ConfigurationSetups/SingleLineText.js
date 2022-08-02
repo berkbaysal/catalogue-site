@@ -9,6 +9,7 @@ function SingleLineText({ option, handleOptionChange, setCurrentInputs, optionIn
             <h3 className="config-sub-head">{option.optionName}:</h3>
             <div className="config-sub-text">{option.optionText}</div>
             <TextField
+                size = "small"
                 label={option.optionPlaceholder}
                 className="input-field"
                 value={option.optionHasOverride ? option.optionOverride : option.optionDefault}
