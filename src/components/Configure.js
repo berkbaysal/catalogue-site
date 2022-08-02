@@ -1,21 +1,26 @@
 import React from 'react'
 import "../css/Configure.scss"
 import ColorOption from './ColorOption'
-import ColorPalette from '../data/ColorPalette'
 import Button from './Button';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 import ConfigureUI from './ConfigureUI'
 import ComponentCatalogue from '../data/ComponentCatalogue';
+import {useSelector , useDispatch} from "react-redux"
+import {resetDefaultColors} from "../features/color"
 
 function Configure() {
+    const colors = useSelector((state) => state.colors.value)
+    const dispatch = useDispatch();
+
+   
+
     const DefaultLayoutSetup = ["ableton-style-navigation-menu", "ableton-style-video-player", "ableton-style-footer"]
-    const [colors, setColors] = React.useState(ColorPalette); //Data of color configuration
     const [activePicker, setActivePicker] = React.useState(""); //Data for color picker UI
     const [layout, setLayout] = React.useState(DefaultLayoutSetup.map(item => (ComponentCatalogue[item]))); //Data of currently selected layout
     const [activeConfigure, setActiveConfigure] = React.useState({ layoutObject: null, index: null }) //Index of the element in layout currently being configured
-    const colorsDisplay = colors.map(option => {
+    const colorsDisplay = colors.map((option,index) => {
         return (
-            <ColorOption label={option.label} color={option.color} colorHex={option.colorHex} setColors={setColors} key={option.label} activePicker={activePicker} setActivePicker={setActivePicker} />
+            <ColorOption index={index} key={option.label} activePicker={activePicker} setActivePicker={setActivePicker} />
         )
     })
     const layoutDisplay = layout.map((item, index) => {
@@ -25,7 +30,7 @@ function Configure() {
     })
 
     function resetColors() {
-        setColors(ColorPalette);
+        dispatch(resetDefaultColors());
     }
 
     function handleOnDragEnd(e) {
@@ -46,7 +51,7 @@ function Configure() {
                 <h1 className='config-head'>Color Theme:</h1>
                 {colorsDisplay}
                 <div className="btn-container">
-                    <Button label="Reset Default Colors" onClick={resetColors} />
+                    <Button label="Reset Default Colors" onClick={resetColors } />
                 </div>
                 <div className="footnote">Not all components use all of the colors in the theme. Depending on your configuration, certain colors may not appear in the layout.</div>
             </div>
