@@ -8,10 +8,6 @@ import { useSelector, useDispatch } from "react-redux"
 import { updateLayoutItem, deleteLayoutItem } from "../features/layout"
 import { displayConfigurationForItem, resetActiveConfiguration, changeSelectedStyle, changeSelectedType } from "../features/activeConfiguration"
 
-// activeComponent={activeConfigure.layoutObject}
-// activeIndex={activeConfigure.index}
-// setActiveConfigure={setActiveConfigure}
-
 function ConfigureUI() {
 
     const layout = useSelector((state) => state.layout.value)

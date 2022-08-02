@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from "@mui/material/Slider"
-import { InputAdornment, InputLabel, OutlinedInput, TextField, FormControl } from '@mui/material'
+import { InputAdornment, OutlinedInput } from '@mui/material'
 function SliderConfig({ option, handleOptionChange, setCurrentInputs, optionIndex }) {
     function validateEntry(e) {
         const regex = /^\d+$/
