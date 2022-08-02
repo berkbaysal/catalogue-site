@@ -8,12 +8,14 @@ import { Provider } from "react-redux";
 import colorsReducer from "./features/color"
 import layoutReducer from "./features/layout";
 import activeColorPickerReducer from "./features/activeColorPicker";
+import activeConfigurationReducer from "./features/activeConfiguration";
 
 const store = configureStore({
     reducer: {
         colors: colorsReducer,
         layout: layoutReducer,
-        activeColorPicker: activeColorPickerReducer
+        activeColorPicker: activeColorPickerReducer,
+        activeConfiguration: activeConfigurationReducer
     }
 })
 
