@@ -16,7 +16,7 @@ function Configure() {
 
     const DefaultLayoutSetup = ["ableton-style-navigation-menu", "ableton-style-video-player", "ableton-style-footer"]
     const [activePicker, setActivePicker] = React.useState(""); //Data for color picker UI
-    const [layout, setLayout] = React.useState(DefaultLayoutSetup.map(item => (ComponentCatalogue[item]))); //Data of currently selected layout
+    const [layout, setLayout] = React.useState(DefaultLayoutSetup); //Data of currently selected layout
     const [activeConfigure, setActiveConfigure] = React.useState({ layoutObject: null, index: null }) //Index of the element in layout currently being configured
     const colorsDisplay = colors.map((option,index) => {
         return (
@@ -28,7 +28,6 @@ function Configure() {
             <Button label={item.componentName} key={index} addClass="--inactive" />
         )
     })
-
     function resetColors() {
         dispatch(resetDefaultColors());
     }
@@ -42,9 +41,24 @@ function Configure() {
 
     }
     function handleClick(index) {
-        setActiveConfigure({ layoutObject: layout[index], index: index });
-
+        if (index === activeConfigure.index) {
+            setActiveConfigure({ layoutObject: null, index: null });
+        }
+        else {
+            setActiveConfigure({ layoutObject: layout[index], index: index });
+        }
     }
+    function addNewComponent(){
+        const filteredCatalogue = ComponentCatalogue.filter(item => !["Navigation","Footer"].includes(item.componentCategory));
+        setLayout((oldLayout)=>{
+            let newLayout = oldLayout.slice(0,oldLayout.length-1);
+            newLayout.push(filteredCatalogue[0]);
+            newLayout.push(oldLayout[oldLayout.length-1]);
+            return newLayout;
+        })
+        
+    }
+   
     return (
         <div className="catalogue-configuration">
             <div className="color-config desktop-sizing">
@@ -91,7 +105,7 @@ function Configure() {
                             )}
                         </Droppable>
                     </DragDropContext> {/*DRAGABLE ZONE ENDS HERE*/}
-                    <Button label="Add New Component" />
+                    <div className="wrapper" onClick={addNewComponent}><Button label="Add New Component" /></div>
                 </div>
                 <div className="layout-config-footer">
                     <h3 className="config-sub-head">Footer:</h3>
@@ -101,7 +115,7 @@ function Configure() {
                     <br /><br />Note: You must have a footer and a navigation menu.</div>
             </div>
             <div className="component-config desktop-sizing">
-                <h1 className='config-head'>Current Configuration:</h1>
+                <h1 className='config-head'>Configure a Component:</h1>
                 {!activeConfigure.layoutObject && <h3 className="config-sub-head">Choose or add a component to start configuring.</h3>}
                 {activeConfigure.layoutObject &&
                     <ConfigureUI

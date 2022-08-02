@@ -69,5 +69,13 @@
             width: 45%;
         }
     }
-
+    .configuration-delete-button{
+        margin-top:2rem;
+        .btn{
+            background-color: red;
+        }
+        .btn:hover{
+            background-color: #ff3d4a;
+        }
+    }
 }
