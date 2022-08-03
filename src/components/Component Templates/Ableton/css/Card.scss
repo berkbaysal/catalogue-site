@@ -1,0 +1,72 @@
+.ableton-style-card {
+    padding: 10%;
+
+    .card-container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        height: min(40vw, 640px);
+
+        .card-image-container {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            background-color: red;
+
+            .card-image {
+                width: 100%;
+
+                object-fit: cover;
+            }
+        }
+
+        .card-text-container {
+            width: 50%;
+            height: 100%;
+            background-color: var(--accent-two);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.7rem;
+            font-weight: 500;
+            padding: 5%;
+        }
+
+        .card-link {
+            color: var(--highlight-two);
+            align-self: start;
+            margin-top: 2rem;
+        }
+    }
+}
+
+@media only screen and (max-width:1200px) {
+    .ableton-style-card {
+        width: 100%;
+
+        .card-container {
+            flex-direction: column;
+            height: auto;
+
+            .card-image-container {
+                width: 100%;
+                height: 40vw;
+            }
+
+            .card-text-container {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:1000px) {
+    .ableton-style-card {
+        .card-container {
+            .card-text-container {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

@@ -1,13 +1,16 @@
 import React from 'react'
 import "../css/ConfigureUI.scss"
 import SliderConfig from './ConfigurationSetups/SliderConfig';
-import SingleLineText from './ConfigurationSetups/SingleLineText';
+import MultipleSingleLines from './ConfigurationSetups/MultipleSingleLines';
 import SelectConfigOneLine from './ConfigurationSetups/SelectConfigOneLine';
+import SingleLineText from './ConfigurationSetups/SingleLineText';
+import MultiLineText from './ConfigurationSetups/MultiLineText';
 import Button from './Button';
 import ComponentCatalogue from '../data/ComponentCatalogue';
 import { useSelector, useDispatch } from "react-redux"
 import { updateLayoutItem, deleteLayoutItem } from "../features/layout"
 import { displayConfigurationForItem, resetActiveConfiguration, changeSelectedStyle, changeSelectedType } from "../features/activeConfiguration"
+
 
 function ConfigureUI() {
 
@@ -42,10 +45,27 @@ function ConfigureUI() {
                     option={option}
                     key={"option-" + index}
                     optionIndex={index}
-                    optionChoices = {option.optionChoices}
+                    optionChoices={option.optionChoices}
                     handleOptionChange={handleOptionChange}
                     setCurrentInputs={setCurrentInputs} />
-                
+            case ("multi-single-line"):
+                return <MultipleSingleLines
+                    option={option}
+                    key={"option-" + index}
+                    optionIndex={index}
+                    optionChoices={option.optionChoices}
+                    handleOptionChange={handleOptionChange}
+                    setCurrentInputs={setCurrentInputs}
+                    lineCount={option.optionDefault.length}
+                />
+            case ("multi-line-text"):
+                return <MultiLineText
+                    option={option}
+                    key={"option-" + index}
+                    optionIndex={index}
+                    handleOptionChange={handleOptionChange}
+                    setCurrentInputs={setCurrentInputs} />
+
         }
     })
 
@@ -67,10 +87,10 @@ function ConfigureUI() {
         cancelConfig();
     }
 
-    function handleOptionChange(e, setCurrentInputs, optionIndex) {
+    function handleOptionChange(newVal, setCurrentInputs, optionIndex) {
         setCurrentInputs((oldObj) => {
             let newOptions = [...oldObj.options];
-            newOptions[optionIndex].optionOverride = e.target.value;
+            newOptions[optionIndex].optionOverride = newVal;
             newOptions[optionIndex].optionHasOverride = true;
             return { ...oldObj, options: newOptions };
         })

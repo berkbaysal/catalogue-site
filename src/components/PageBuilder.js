@@ -5,6 +5,8 @@ import AbletonFooter from "../components/Component Templates/Ableton/components/
 import AbletonHero from "../components/Component Templates/Ableton/components/Hero"
 import AbletonTwoImage from "../components/Component Templates/Ableton/components/TwoImages";
 import AbletonThreeImage from "../components/Component Templates/Ableton/components/ThreeImages";
+import AbletonCard from "../components/Component Templates/Ableton/components/Card";
+import AbletonInfobox from "../components/Component Templates/Ableton/components/Infobox";
 import { useSelector } from "react-redux";
 
 
@@ -37,6 +39,12 @@ function PageBuilder(props) {
                     break;
                 case "Ableton Style Three Images":
                     newLayoutJsx.push(<AbletonThreeImage {...componentProps} key={component.componentName + index} />)
+                    break;
+                case "Ableton Style Card":
+                    newLayoutJsx.push(<AbletonCard {...componentProps} key={component.componentName + index} />)
+                    break;
+                case "Ableton Style Infobox":
+                    newLayoutJsx.push(<AbletonInfobox {...componentProps} key={component.componentName + index} />)
                     break;
                 default:
                     break;

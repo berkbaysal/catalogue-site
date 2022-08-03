@@ -20,14 +20,18 @@
         width: 60%;
     }
     .option-container{
-        margin-top: 2rem;
+        margin-top: 1.5rem;
     }
     .input-field{
-        height: 1.8rem;
+        height: 1.2rem;
         margin:1rem 0;
         font-family: inherit;
         text-indent: 0.2rem;
         width: 100%;
+    }
+    .input-field-multiline{
+        @extend .input-field;
+        height: auto;
     }
     .slider-ui-container{
         display: flex;
@@ -91,5 +95,7 @@
             }
         }
     }
-
+    .form-control{
+        width: 100%;
+    }
 }

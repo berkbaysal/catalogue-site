@@ -188,5 +188,67 @@ export default
                 }
             ],
         },
+        {
+            componentName: "Ableton Style Card",
+            componentCategory: "Image",
+            options: [
+                {
+                    optionName: "Card Image",
+                    optionType: "single-line",
+                    optionText: "Provide a URL for the card image.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "image"
+                },
+                {
+                    optionName: "Main Text",
+                    optionType: "multi-line-text",
+                    optionText: "Main text content of your card.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+                    optionProp: "text"
+                },
+                {
+                    optionName: "Link",
+                    optionType: "multi-single-line",
+                    optionText: "A link at the end of your text",
+                    optionDefault: ["",""],
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: ["Display text: (ex: Click me!)","Link URL: (ex: http://www.website.com)"],
+                    optionProp: "link"
+                },
+            ],
+        },
+        {
+            componentName: "Ableton Style Infobox",
+            componentCategory: "Text",
+            options: [
+                {
+                    optionName: "Top text",
+                    optionType: "multi-line-text",
+                    optionText: "Text for the top (bold) part of infobox.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+                    optionProp: "topText"
+                },
+                {
+                    optionName: "Bottom text",
+                    optionType: "multi-line-text",
+                    optionText: "Text for the bottom part of infobox.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+                    optionProp: "bottomText"
+                },
+            ],
+        },
         
     ]

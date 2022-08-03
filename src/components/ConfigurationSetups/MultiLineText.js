@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextField } from '@mui/material'
 
-function SingleLineText({ option, handleOptionChange, setCurrentInputs, optionIndex }) {
+function MultiLineText({ option, handleOptionChange, setCurrentInputs, optionIndex }) {
 
 
     return (
@@ -9,9 +9,11 @@ function SingleLineText({ option, handleOptionChange, setCurrentInputs, optionIn
             <h3 className="config-sub-head">{option.optionName}:</h3>
             <div className="config-sub-text">{option.optionText}</div>
             <TextField
+                multiline
+                minRows="2"
                 size = "small"
                 label={option.optionPlaceholder}
-                className="input-field"
+                className="input-field-multiline"
                 value={option.optionHasOverride ? option.optionOverride : option.optionDefault}
                 onChange={(e) => handleOptionChange(e.target.value, setCurrentInputs, optionIndex)} />
 
@@ -19,4 +21,4 @@ function SingleLineText({ option, handleOptionChange, setCurrentInputs, optionIn
     )
 }
 
-export default SingleLineText
+export default MultiLineText

@@ -14,7 +14,7 @@ function SelectConfigOneLine({ option, handleOptionChange, setCurrentInputs, opt
                 label="age"
                 className="input-select"
                 value={option.optionHasOverride ? option.optionOverride : option.optionDefault}
-                onChange={(e) => handleOptionChange(e, setCurrentInputs, optionIndex)} >
+                onChange={(e) => handleOptionChange(e.target.value, setCurrentInputs, optionIndex)} >
 
                 {optionChoices.map(optionChoice=>(<MenuItem value={optionChoice} key={optionChoice}>{optionChoice}</MenuItem>))}
             </Select>

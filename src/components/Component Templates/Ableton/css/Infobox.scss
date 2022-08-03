@@ -1,0 +1,33 @@
+.ableton-style-infobox {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 20%;
+
+    .top-line {
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 1rem 0;
+    }
+
+    .bottom-line {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin: 1rem 0;
+    }
+
+}
+
+@media only screen and (max-width:1000px) {
+    .ableton-style-infobox {
+        padding: 1rem 10%;
+
+        .top-line {
+            font-size: 1.2rem;
+        }
+
+        .bottom-line {
+            font-size: 1rem;
+        }
+    }
+
+}
