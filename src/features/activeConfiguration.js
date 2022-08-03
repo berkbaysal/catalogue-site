@@ -63,9 +63,12 @@ export const activeConfigurationSlice = createSlice({
                 availableStyles: getAvailableStyles(action.payload),
                 currentDisplayObject: (isSelectedOriginal ? state.value.layoutObject:ComponentCatalogue.filter(item=>(item.componentCategory === action.payload))[0])
             }
+        },
+        changeIndexOfItem: (state,action)=>{
+            state.value={...state.value, index:action.payload}
         }
     }
 })
 
-export const { displayConfigurationForItem, resetActiveConfiguration,changeSelectedStyle, changeSelectedType} = activeConfigurationSlice.actions;
+export const { displayConfigurationForItem, resetActiveConfiguration,changeSelectedStyle, changeSelectedType, changeIndexOfItem} = activeConfigurationSlice.actions;
 export default activeConfigurationSlice.reducer;

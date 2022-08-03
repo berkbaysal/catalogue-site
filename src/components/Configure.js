@@ -7,7 +7,7 @@ import ConfigureUI from './ConfigureUI'
 import { useSelector, useDispatch } from "react-redux"
 import { resetDefaultColors } from "../features/color"
 import { setLayout, addNewItemToLayout } from "../features/layout"
-import {displayConfigurationForItem} from "../features/activeConfiguration";
+import {displayConfigurationForItem, changeIndexOfItem} from "../features/activeConfiguration";
 
 function Configure({colorMenuActive}) {
     const colors = useSelector((state) => state.colors.value)
@@ -28,9 +28,16 @@ function Configure({colorMenuActive}) {
 
     function handleOnDragEnd(e) {
         if (!e.destination) return;
+        let currentOrderIndex = [];
+        let reorderedIndex;
+        for(let i=0;i<layout.length;i++){currentOrderIndex.push(i)};
         const items = Array.from(layout);
         const [reordered] = items.splice(e.source.index, 1);
+        [reorderedIndex] = currentOrderIndex.splice(e.source.index,1)
+        currentOrderIndex.splice(e.destination.index, 0, reorderedIndex);
         items.splice(e.destination.index, 0, reordered);
+        
+        dispatch(changeIndexOfItem(currentOrderIndex.indexOf(activeConfiguration.index)))
         dispatch(setLayout(items));
 
     }
