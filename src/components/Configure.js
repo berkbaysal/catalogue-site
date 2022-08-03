@@ -43,7 +43,17 @@ function Configure() {
             dispatch(displayConfigurationForItem({ layoutObject: layout[index], index: index }));
         }
     }
+    function updateColorCSS(){
+        var root = document.querySelector(":root");
+        root.style.setProperty("--highlight-one",colors[0].colorHex)
+        root.style.setProperty("--highlight-two",colors[1].colorHex)
+        root.style.setProperty("--page-background",colors[2].colorHex)
+        root.style.setProperty("--accent-one",colors[3].colorHex)
+        root.style.setProperty("--accent-two",colors[4].colorHex)
+    }
 
+
+    React.useEffect(()=>{updateColorCSS()},[colors])
 
     return (
         <div className="catalogue-configuration">
