@@ -10,7 +10,7 @@ function Infobox(props) {
     if (props.bottomText) {
         bottomText = props.bottomText;
     }
-
+    
     return (
         <div className="ableton-style">
             <div className="ableton-style-infobox">

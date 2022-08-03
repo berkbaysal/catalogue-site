@@ -6,7 +6,7 @@
     --accent-two: #D5B3FF;
 }
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -16,36 +16,66 @@ html {
     background-color: var(--page-background);
 }
 
-body{
+body {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     font-variant-ligatures: no-common-ligatures;
 }
-.app-container{
-    .config-fab-button{
+
+.app-container {
+    
+    .config-fab-button {
         position: fixed;
-        right:1rem;
-        top:1rem;
-        
+        right: 1rem;
+        top: 1rem;
+
+    }
+
+    .color-fab-button {
+        @extend .config-fab-button;
+        right: 5rem;
+        display: none;
+
+    }
+
+    .config-overlay {
+        display: none;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index:2;
     }
 }
 
-.ableton-style{
+.ableton-style {
     background-color: white;
     font-size: 16px;
     font-family: "futura-pt", sans-serif;
     max-width: 1600px;
     margin: auto;
+
     a {
         text-decoration: none;
         color: inherit;
     }
-    
+
     ul {
         list-style: none;
     }
-    
+
     .font-awesome-icon {
         font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width:1500px) {
+    .app-container {
+        .config-overlay {
+            display: unset;
+        }
+        .color-fab-button {
+            display: flex;
+        }
     }
 }

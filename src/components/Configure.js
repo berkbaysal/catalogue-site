@@ -9,12 +9,11 @@ import { resetDefaultColors } from "../features/color"
 import { setLayout, addNewItemToLayout } from "../features/layout"
 import {displayConfigurationForItem} from "../features/activeConfiguration";
 
-function Configure() {
+function Configure({colorMenuActive}) {
     const colors = useSelector((state) => state.colors.value)
     const layout = useSelector((state) => state.layout.value)
     const activeConfiguration = useSelector((state) => state.activeConfiguration.value)
     const dispatch = useDispatch();
-
     
     const colorsDisplay = colors.map((option, index) => {
         return (
@@ -57,7 +56,7 @@ function Configure() {
 
     return (
         <div className="catalogue-configuration">
-            <div className="color-config desktop-sizing">
+            <div className={`color-config variable-sizing ${colorMenuActive ? "--slide-right":""}`}>
                 <h1 className='config-head'>Color Theme:</h1>
                 {colorsDisplay}
                 <div className="btn-container">
@@ -65,7 +64,7 @@ function Configure() {
                 </div>
                 <div className="footnote">Not all components use all of the colors in the theme. Depending on your configuration, certain colors may not appear in the layout.</div>
             </div>
-            <div className="layout-config desktop-sizing">
+            <div className="layout-config variable-sizing">
                 <h1 className='config-head'>Current Configuration:</h1>
                 <div className="layout-config-navigation">
                     <h3 className="config-sub-head">Navigation:</h3>
@@ -109,7 +108,7 @@ function Configure() {
                 <div className="footnote">You can re-arrange body components by dragging and dropping. You can edit or remove each individual component by clicking on it and opening the configuration menu.
                     <br /><br />Note: You must have a footer and a navigation menu.</div>
             </div>
-            <div className="component-config desktop-sizing">
+            <div className={`component-config variable-sizing ${activeConfiguration.layoutObject !== null ? "--slide-left":""}`}>
                 <h1 className='config-head'>Configure a Component:</h1>
                 {!activeConfiguration.layoutObject && <h3 className="config-sub-head">Choose or add a component to start configuring.</h3>}
                 {activeConfiguration.layoutObject &&

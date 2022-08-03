@@ -9,7 +9,7 @@ function Videobox(props) {
     const [videoPlayerActive, setVideoPlayerActive] = React.useState(false);
 
     let style = { width: "66%", aspectRatio: "16 / 9" }
-    let videoId = "Tvz-eD2EXnw";
+    let videoId = "cZdO2e8K29o";
     let label = "This is the video label."
     if (props.width) {
         style.width = props.width + "%";

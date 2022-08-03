@@ -27,7 +27,7 @@ export default
                     optionDefault: "",
                     optionHasOverride: false,
                     optionOverride: "",
-                    optionPlaceholder: "ex: dQw4w9WgXcQ",
+                    optionPlaceholder: "ex: cZdO2e8K29o",
                     optionProp: "videoId"
                 }, 
                 {

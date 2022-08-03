@@ -68,10 +68,10 @@ function Navbar(props) {
     React.useEffect(() => {
         function checkForMobile() {
             if (window.innerWidth <= 950) {
-                setNavbarStatus((oldStatus) => ({ ...oldStatus, isMobileModeActive: true, isSlidingMenuUp: true }))
+                setNavbarStatus((oldStatus) => ({ ...oldStatus, isMobileModeActive: true}))
             }
-            else {
-                setNavbarStatus((oldStatus) => ({ ...oldStatus, isMobileModeActive: false }))
+            else{
+                setNavbarStatus((oldStatus) => ({ ...oldStatus, isMobileModeActive: false, isSlidingMenuUp:true }))
             }
         }
         addEventListener("resize", checkForMobile);
