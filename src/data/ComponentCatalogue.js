@@ -286,5 +286,60 @@ export default
                 },
             ],
         },
-        
+        {
+            componentName: "Bonsai Style Hero Section",
+            componentCategory: "Image",
+            options: [
+                {
+                    optionName: "Image One",
+                    optionType: "single-line",
+                    optionText: "Provide a URL for the top left image.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "imageOne"
+                },
+                {
+                    optionName: "Image Two",
+                    optionType: "single-line",
+                    optionText: "Provide a URL for the top right.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "imageTwo"
+                },
+                {
+                    optionName: "Image Three",
+                    optionType: "single-line",
+                    optionText: "Provide a URL for the bottom left.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "imageThree"
+                },
+                {
+                    optionName: "Image Four",
+                    optionType: "single-line",
+                    optionText: "Provide a URL for the bottom right.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "imageFour"
+                },
+                {
+                    optionName: "Background Shape Intensity",
+                    optionType: "slider",
+                    optionText: "Set how prominent the background shape should be.",
+                    optionDefault: 50,
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "",
+                    optionProp: "backgroundIntensity"
+                },
+            ],
+        },
     ]
