@@ -50,7 +50,7 @@
 
             .search-field {
                 width: 65%;
-                border: 3px solid var(--primary-highlight);
+                border: 3px solid var(--highlight-one);
                 height: 100%;
                 background-color: white;
 
@@ -75,7 +75,7 @@
                 color: white;
                 height: 100%;
                 width: 35%;
-                background-color: var(--primary-highlight);
+                background-color: var(--highlight-one);
                 cursor: pointer;
             }
             .search-button:hover{

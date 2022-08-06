@@ -44,7 +44,7 @@
         max-width: 100%;
 
         .pricing-unit {
-            width: 33%;
+            width: min(33%,450px);
             padding: 1rem 1rem;
         }
     }
@@ -63,8 +63,9 @@
         }
         .unit-container{
             flex-direction: column;
+            align-items: center;
             .pricing-unit{
-                width: 100%;
+                width: min(100%,450px);
             }
         }
     }
