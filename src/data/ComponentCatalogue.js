@@ -342,4 +342,61 @@ export default
                 },
             ],
         },
+        {
+            componentName: "Bonsai Style FAQ",
+            componentCategory: "Text",
+            options: [],
+        },
+        {
+            componentName: "Bonsai Style Footer",
+            componentCategory: "Footer",
+            options: [],
+        },
+        {
+            componentName: "Bonsai Style Review",
+            componentCategory: "Image",
+            options: [
+                {
+                    optionName: "Reviewer Image",
+                    optionType: "single-line",
+                    optionText: "Provide a URL for the reviewer image.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "image"
+                },
+                {
+                    optionName: "Review",
+                    optionType: "multi-line-text",
+                    optionText: "Main text content of your card.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+                    optionProp: "review"
+                },
+                {
+                    optionName: "Reviewer Name",
+                    optionType: "single-line",
+                    optionText: "Name of the reviewer",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "John Doe",
+                    optionProp: "name"
+                },
+                {
+                    optionName: "Reviewer Title/Occupation",
+                    optionType: "single-line",
+                    optionText: "Title/Occupation of the reviewer",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "Designer",
+                    optionProp: "title"
+                },
+            ],
+        },
+        
     ]

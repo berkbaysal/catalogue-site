@@ -9,6 +9,9 @@ import AbletonCard from "../components/Component Templates/Ableton/components/Ca
 import AbletonInfobox from "../components/Component Templates/Ableton/components/Infobox";
 import BonsaiNavbar from "../components/Component Templates/Bonsai/components/Navbar"
 import BonsaiHero from "../components/Component Templates/Bonsai/components/Hero"
+import BonsaiFAQ from "../components/Component Templates/Bonsai/components/FAQ"
+import BonsaiFooter from "../components/Component Templates/Bonsai/components/Footer"
+import BonsaiReview from "../components/Component Templates/Bonsai/components/Review"
 import { useSelector } from "react-redux";
 
 
@@ -21,7 +24,7 @@ function PageBuilder(props) {
         layout.forEach((component, index) => {
             let componentProps = [];
             component.options.forEach((option) => {
-                componentProps[option.optionProp] = option.optionHasOverride?option.optionOverride:option.optionDefault;
+                componentProps[option.optionProp] = option.optionHasOverride ? option.optionOverride : option.optionDefault;
             })
             switch (component.componentName) {
                 case "Ableton Style Navigation Menu":
@@ -53,6 +56,15 @@ function PageBuilder(props) {
                     break;
                 case "Bonsai Style Hero Section":
                     newLayoutJsx.push(<BonsaiHero {...componentProps} key={component.componentName + index} />)
+                    break;
+                case "Bonsai Style FAQ":
+                    newLayoutJsx.push(<BonsaiFAQ {...componentProps} key={component.componentName + index} />)
+                    break;
+                case "Bonsai Style Footer":
+                    newLayoutJsx.push(<BonsaiFooter {...componentProps} key={component.componentName + index} />)
+                    break;
+                case "Bonsai Style Review":
+                    newLayoutJsx.push(<BonsaiReview {...componentProps} key={component.componentName + index} />)
                     break;
                 default:
                     break;

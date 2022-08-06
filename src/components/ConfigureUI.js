@@ -26,9 +26,6 @@ function ConfigureUI() {
     let originalOptions = activeComponent.options.map((item) => ({ ...item }));
     const [currentInputs, setCurrentInputs] = React.useState({ ...activeComponent, options: [...originalOptions] });
 
-    if (currentInputs.options.length < 1) {
-        return (<div className="option-container"><div className="config-sub-head">This component has no options.</div></div>)
-    }
     const componentSettings = currentInputs.options.map((option, index) => {
         switch (option.optionType) {
             case ("single-line"):
@@ -80,6 +77,10 @@ function ConfigureUI() {
 
         }
     })
+
+    if (componentSettings.length === 0){
+            componentSettings.push(<div key={"no-option"} className="option-container"><div className="config-sub-head"><em>This component has no options.</em></div></div>)
+    }
 
     const displayTypes = activeConfiguration.availableTypes.map(item => (<option key={item}>{item}</option>))
     const displayStyles = activeConfiguration.availableStyles.map(item => (<option key={item}>{item}</option>))
