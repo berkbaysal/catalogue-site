@@ -13,7 +13,7 @@
 
     .ribbon{
         text-align: center;
-        background-color: var(--primary-highlight);
+        background-color: var(--highlight-one);
         position: absolute;
         padding: 0.5rem;
         width: 100%;
@@ -36,7 +36,7 @@
         height: 5rem;
         display: flex;
         padding: 1rem 0;
-        border-bottom: 2px solid var(--primary-highlight);
+        border-bottom: 2px solid var(--highlight-one);
         .currency{
             font-size:2rem;
             margin-bottom: auto;
@@ -65,6 +65,7 @@
             font-size:1rem;
             line-height: 1rem;
             height: 100%;
+            margin-left: 0.5rem;
         }
         
     }
@@ -81,7 +82,7 @@
     }   
     .unit-button{
         margin-top: 2rem;
-        background-color: var(--primary-highlight);
+        background-color: var(--highlight-one);
         height: 4rem;
         display: flex;
         align-items: center;
@@ -95,5 +96,18 @@
     }
     .unit-button:hover{
         filter: brightness(0.9);
+    }
+}
+
+@media only screen and (max-width:1350px) and (min-width: 1000px){
+
+    .bonsai-pricing-unit-container{
+        .unit-price{
+            .interval{
+                margin-left: 0.5rem;
+                font-size: 1.5rem;
+                line-height: 4.5rem;
+            }
+        }
     }
 }

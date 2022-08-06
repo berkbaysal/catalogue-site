@@ -6,8 +6,9 @@ function SelectConfigOneLine({ option, handleOptionChange, setCurrentInputs, opt
 
     return (
         <div className='option-container'>
-            <div className="input-select-container">
             <h3 className="config-sub-head">{option.optionName}:</h3>
+            <div className="input-select-container">
+            <h3 className="config-sub-text">{option.optionText}:</h3>
             <Select
                 size="small"
                 autoWidth

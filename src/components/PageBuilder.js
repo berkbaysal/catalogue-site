@@ -12,6 +12,7 @@ import BonsaiHero from "../components/Component Templates/Bonsai/components/Hero
 import BonsaiFAQ from "../components/Component Templates/Bonsai/components/FAQ"
 import BonsaiFooter from "../components/Component Templates/Bonsai/components/Footer"
 import BonsaiReview from "../components/Component Templates/Bonsai/components/Review"
+import BonsaiPrice from "../components/Component Templates/Bonsai/components/PricingDisplay"
 import { useSelector } from "react-redux";
 
 
@@ -65,6 +66,9 @@ function PageBuilder(props) {
                     break;
                 case "Bonsai Style Review":
                     newLayoutJsx.push(<BonsaiReview {...componentProps} key={component.componentName + index} />)
+                    break;
+                case "Bonsai Style Price Plans":
+                    newLayoutJsx.push(<BonsaiPrice {...componentProps} key={component.componentName + index} />)
                     break;
                 default:
                     break;

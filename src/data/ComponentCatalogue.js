@@ -131,7 +131,7 @@ export default
                 {
                     optionName: "Background Shape Alignment",
                     optionType: "select",
-                    optionText: "Provide a URL for your second image.",
+                    optionText: "Select alignment for the background shape",
                     optionDefault: "Right",
                     optionHasOverride: false,
                     optionOverride: "",
@@ -178,7 +178,7 @@ export default
                 {
                     optionName: "Background Shape Alignment",
                     optionType: "select",
-                    optionText: "Provide a URL for your second image.",
+                    optionText: "Select alignment for the background shape",
                     optionDefault: "Right",
                     optionHasOverride: false,
                     optionOverride: "",
@@ -398,5 +398,22 @@ export default
                 },
             ],
         },
-        
+        {
+            componentName: "Bonsai Style Price Plans",
+            componentCategory: "E-commerce",
+            options: [
+                {
+                    optionName: ["Number of Offers","Promotion Ribbon"],
+                    optionType: "dependant-select",
+                    optionText: ["How many offers should be displayed","Put a ribbon on a plan to promote it"],
+                    optionDefault: [1,"None"],
+                    optionHasOverride: false,
+                    optionOverride: ["","None"],
+                    optionPlaceholder: "Background Alignment",
+                    optionChoices: [1,2,3],
+                    optionProp: "cardSetup",
+                    optionDependantChoices: [["None",1],["None",1,2],["None",1,2,3]],
+                },
+            ],
+        }
     ]

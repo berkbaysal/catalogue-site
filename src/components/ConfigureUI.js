@@ -3,6 +3,7 @@ import "../css/ConfigureUI.scss"
 import SliderConfig from './ConfigurationSetups/SliderConfig';
 import MultipleSingleLines from './ConfigurationSetups/MultipleSingleLines';
 import SelectConfigOneLine from './ConfigurationSetups/SelectConfigOneLine';
+import SelectConfigDependant from './ConfigurationSetups/SelectConfigDependant';
 import SingleLineText from './ConfigurationSetups/SingleLineText';
 import MultiLineText from './ConfigurationSetups/MultiLineText';
 import CheckboxOption from './ConfigurationSetups/CheckboxOption';
@@ -21,7 +22,6 @@ function ConfigureUI() {
     const dispatch = useDispatch();
     let activeComponent = activeConfiguration.currentDisplayObject;
     let activeIndex = activeConfiguration.index;
-
 
     let originalOptions = activeComponent.options.map((item) => ({ ...item }));
     const [currentInputs, setCurrentInputs] = React.useState({ ...activeComponent, options: [...originalOptions] });
@@ -44,6 +44,14 @@ function ConfigureUI() {
                     setCurrentInputs={setCurrentInputs} />
             case ("select"):
                 return <SelectConfigOneLine
+                    option={option}
+                    key={"option-" + index}
+                    optionIndex={index}
+                    optionChoices={option.optionChoices}
+                    handleOptionChange={handleOptionChange}
+                    setCurrentInputs={setCurrentInputs} />
+            case ("dependant-select"):
+                return <SelectConfigDependant
                     option={option}
                     key={"option-" + index}
                     optionIndex={index}

@@ -31,7 +31,7 @@
             }
 
             .MuiSwitch-track {
-                background-color: var(--primary-highlight);
+                background-color: var(--highlight-one);
                 opacity: 1;
             }
         }
@@ -41,12 +41,15 @@
         display: flex;
         justify-content: space-evenly;
         padding: 0 1rem;
+        max-width: 100%;
 
         .pricing-unit {
+            width: 33%;
             padding: 1rem 1rem;
         }
     }
 }
+
 
 @media only screen and (max-width:1000px) {
     .price-display-container{
@@ -60,6 +63,9 @@
         }
         .unit-container{
             flex-direction: column;
+            .pricing-unit{
+                width: 100%;
+            }
         }
     }
 }

@@ -9,11 +9,8 @@ const content = [["Starter", "Ideal for freelancers and contractors just startin
 ];
 
 function PricingDisplay(props) {
-    let unitCount = 3;
-    let promotedIndex=-1;
-    if(props.promotedCard){
-        promotedIndex=props.promotedCard-1;
-    }
+    let unitCount = props.cardSetup[0];
+    let promotedIndex= props.cardSetup[1] === "None"?-1:props.cardSetup[1]-1;
     if (props.unitCount) {
         unitCount = props.unitCount;
     }
@@ -21,7 +18,7 @@ function PricingDisplay(props) {
     const unitList = []
 
     for (let i = 0; i < unitCount; i++) {
-        unitList.push(<div className="pricing-unit"><PricingUnit content={content[i]} yearly={yearly} promoted={promotedIndex===i?true:false}/></div>)
+        unitList.push(<div key={"pricing-unit-" + i}className="pricing-unit"><PricingUnit content={content[i]} yearly={yearly} promoted={promotedIndex===i?true:false}/></div>)
     }
 
     function switchToggle(e){
