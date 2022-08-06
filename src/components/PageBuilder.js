@@ -7,6 +7,7 @@ import AbletonTwoImage from "../components/Component Templates/Ableton/component
 import AbletonThreeImage from "../components/Component Templates/Ableton/components/ThreeImages";
 import AbletonCard from "../components/Component Templates/Ableton/components/Card";
 import AbletonInfobox from "../components/Component Templates/Ableton/components/Infobox";
+import BonsaiNavbar from "../components/Component Templates/Bonsai/components/Navbar"
 import { useSelector } from "react-redux";
 
 
@@ -45,6 +46,9 @@ function PageBuilder(props) {
                     break;
                 case "Ableton Style Infobox":
                     newLayoutJsx.push(<AbletonInfobox {...componentProps} key={component.componentName + index} />)
+                    break;
+                case "Bonsai Style Navigation Menu":
+                    newLayoutJsx.push(<BonsaiNavbar {...componentProps} key={component.componentName + index} />)
                     break;
                 default:
                     break;

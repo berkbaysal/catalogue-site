@@ -44,7 +44,7 @@ body {
         width: 100vw;
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.5);
-        z-index:2;
+        z-index: 2;
     }
 }
 
@@ -69,11 +69,26 @@ body {
     }
 }
 
+.bonsai-style {
+    font-family: 'Proxima Nova', sans-serif;
+    font-size: 16px;
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
 @media only screen and (max-width:1500px) {
     .app-container {
         .config-overlay {
             display: unset;
         }
+
         .color-fab-button {
             display: flex;
         }

@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/img/logo.svg";
+import Logo from "../../../../assets/img/logo.svg"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "../css/Navbar.scss"

@@ -1,0 +1,99 @@
+.bonsai-pricing-unit-container{
+    border: 1px solid rgba(76, 82, 90,0.5);
+    width: 100%;
+    color: #4c525a;
+    padding: 5rem 10%;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .ribbon{
+        text-align: center;
+        background-color: var(--primary-highlight);
+        position: absolute;
+        padding: 0.5rem;
+        width: 100%;
+        left: 50%;
+        top:0;
+        rotate: (45deg);
+        color:white;
+        transform: translateY(5rem) translateX(-0.5rem);
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+    .unit-title{
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    .unit-subtitle{
+        font-size: 1.1rem;
+    }
+    .unit-price{
+        height: 5rem;
+        display: flex;
+        padding: 1rem 0;
+        border-bottom: 2px solid var(--primary-highlight);
+        .currency{
+            font-size:2rem;
+            margin-bottom: auto;
+            height: 100%;
+            line-height: 2rem;
+            font-weight: 600;
+        }
+        .price{
+            line-height: 3rem;
+            font-size: 4rem;
+            font-weight: 600;
+        }
+        .interval{
+            font-size: 2rem;
+            line-height: 4rem;
+            margin-left: 1rem;
+            text-transform: uppercase;
+            position: relative;
+
+        }
+        .bill-interval{
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            width:100%;
+            font-size:1rem;
+            line-height: 1rem;
+            height: 100%;
+        }
+        
+    }
+    .unit-features{
+        padding: 1rem 0;
+        .unit-feature{
+            display: flex;
+            padding: 0.5rem 0;
+            .feature-text{
+                margin-left: 1rem;
+            }
+        }
+        flex-grow: 1;
+    }   
+    .unit-button{
+        margin-top: 2rem;
+        background-color: var(--primary-highlight);
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:white;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        
+    }
+    .unit-button:hover{
+        filter: brightness(0.9);
+    }
+}

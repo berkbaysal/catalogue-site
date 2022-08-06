@@ -1,7 +1,7 @@
 import React from "react";
-import ImageOne from "../assets/img/three-images-one.jpg"
-import ImageTwo from "../assets/img/three-images-two.jpg"
-import ImageThree from "../assets/img/three-images-three.jpg"
+import ImageOne from "../../../../assets/img/three-images-one.jpg"
+import ImageTwo from "../../../../assets/img/three-images-two.jpg"
+import ImageThree from "../../../../assets/img/three-images-three.jpg"
 import "../css/ThreeImages.scss"
 
 function ThreeImages(props) {

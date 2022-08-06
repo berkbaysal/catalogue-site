@@ -1,0 +1,67 @@
+.bonsai-review-container {
+    width: min(100%, 1600px);
+    margin: auto;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem 0 3rem 0;
+    color: #4c525a;
+
+    .info-container {
+        width: 50%;
+        padding: 0rem 1rem 3rem 1rem;
+        border-radius: 1rem;
+        box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.2);
+
+        .quote-icon-container {
+            
+            height: 11rem;
+            fill: var(--accent-two);
+            margin-left:13rem;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+            padding: 3rem 0;
+            position: relative;
+            .quote-icon{
+                height: 4rem;
+                width: 4rem;
+                margin-left: 1rem;
+            }
+            .quote-image {
+                height: 15rem;
+                width: 13rem;
+                object-fit: cover;
+                position: absolute;
+                left: -13rem;
+                border-radius: 30% 30% 0 30%;
+                box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.3);
+            }
+        }
+
+
+        .main-quote{
+            font-size: 1.1rem;
+            padding: 0 1rem;
+        }
+        .quote-name {
+            margin-top: 2rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0 1rem;
+        }
+        .quote-title{
+            padding: 0 1rem;
+        }
+    }
+}
+
+@media only screen and (max-width:1000px) {
+    .bonsai-review-container{
+        .info-container{
+            width: 90%;
+        }
+    }
+    
+}

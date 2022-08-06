@@ -4,7 +4,7 @@ import { faSquareTwitter } from "@fortawesome/free-brands-svg-icons/faSquareTwit
 import { faSquareYoutube } from "@fortawesome/free-brands-svg-icons/faSquareYoutube"
 import { faSquareInstagram } from "@fortawesome/free-brands-svg-icons/faSquareInstagram"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Logo from "../assets/img/logo.svg"
+import Logo from "../../../../assets/img/logo.svg"
 import "../css/Footer.scss"
 
 function Footer(props) {

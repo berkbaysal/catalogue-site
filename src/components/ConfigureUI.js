@@ -5,11 +5,13 @@ import MultipleSingleLines from './ConfigurationSetups/MultipleSingleLines';
 import SelectConfigOneLine from './ConfigurationSetups/SelectConfigOneLine';
 import SingleLineText from './ConfigurationSetups/SingleLineText';
 import MultiLineText from './ConfigurationSetups/MultiLineText';
+import CheckboxOption from './ConfigurationSetups/CheckboxOption';
 import Button from './Button';
 import ComponentCatalogue from '../data/ComponentCatalogue';
 import { useSelector, useDispatch } from "react-redux"
 import { updateLayoutItem, deleteLayoutItem } from "../features/layout"
 import { displayConfigurationForItem, resetActiveConfiguration, changeSelectedStyle, changeSelectedType } from "../features/activeConfiguration"
+
 
 
 function ConfigureUI() {
@@ -24,6 +26,9 @@ function ConfigureUI() {
     let originalOptions = activeComponent.options.map((item) => ({ ...item }));
     const [currentInputs, setCurrentInputs] = React.useState({ ...activeComponent, options: [...originalOptions] });
 
+    if (currentInputs.options.length < 1) {
+        return (<div className="option-container"><div className="config-sub-head">This component has no options.</div></div>)
+    }
     const componentSettings = currentInputs.options.map((option, index) => {
         switch (option.optionType) {
             case ("single-line"):
@@ -60,6 +65,13 @@ function ConfigureUI() {
                 />
             case ("multi-line-text"):
                 return <MultiLineText
+                    option={option}
+                    key={"option-" + index}
+                    optionIndex={index}
+                    handleOptionChange={handleOptionChange}
+                    setCurrentInputs={setCurrentInputs} />
+            case ("checkbox"):
+                return <CheckboxOption
                     option={option}
                     key={"option-" + index}
                     optionIndex={index}

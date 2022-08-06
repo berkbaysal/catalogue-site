@@ -1,6 +1,6 @@
 import React from "react";
-import ImageOne from "../assets/img/two-images-one.jpg"
-import ImageTwo from "../assets/img/two-images-two.jpg"
+import ImageOne from "../../../../assets/img/two-images-one.jpg"
+import ImageTwo from "../../../../assets/img/two-images-two.jpg"
 import "../css/TwoImages.scss"
 
 function TwoImages(props) {

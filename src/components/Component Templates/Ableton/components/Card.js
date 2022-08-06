@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/Card.scss"
-import CardImage from "../assets/img/card-image.jpg"
+import CardImage from "../../../../assets/img/card-image.jpg"
 function Card(props) {
     
     let text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam aliquam nulla perferendis deleniti cupiditate repellendus et obcaecati expedita natus, dolorem alias laudantium omnis recusandae? Voluptas expedita aspernatur facilis at perferendis, odit dolor laborum dolore, nobis accusantium magnam corrupti? Laudantium, assumenda. Consectetur illum aliquam provident repellendus et eveniet obcaecati id minus.";

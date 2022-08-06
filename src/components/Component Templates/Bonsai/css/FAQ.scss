@@ -1,0 +1,47 @@
+.bonsai-style-faq {
+    width: min(100%, 1600px);
+    margin: auto;
+    background-color: white;
+    color: #4c525a;
+
+    .container {
+        padding: 3rem 0;
+        width: 50%;
+        margin: auto;
+
+        .title {
+            text-align: center;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--primary-highlight);
+            margin-bottom: 2rem;
+        }
+
+        .question {
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 1rem 0;
+            cursor: pointer;
+        }
+
+        .question:hover {
+            color: var(--primary-highlight)
+        }
+
+        .answer {
+            line-height: 1.5rem;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .bonsai-style-faq {
+        .container{
+            width: 100%;
+            padding: 3rem 5rem;
+        }
+    }
+
+}

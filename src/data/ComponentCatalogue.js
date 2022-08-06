@@ -250,5 +250,41 @@ export default
                 },
             ],
         },
+        {
+            componentName: "Bonsai Style Navigation Menu",
+            componentCategory: "Navigation",
+            options: [
+                {
+                    optionName: "Logo",
+                    optionType: "single-line",
+                    optionText: "Provide a URL for your logo.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "logo"
+                },
+                {
+                    optionName: "Mobile Logo",
+                    optionType: "single-line",
+                    optionText: "Provide a URL for your logo.",
+                    optionDefault: "",
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "ex: http://www.website.com/image.jpg",
+                    optionProp: "mobileLogo"
+                },
+                {
+                    optionName: "Sticky Navbar",
+                    optionType: "checkbox",
+                    optionText: "Check to box to make the navigation menu sticky.",
+                    optionDefault: false,
+                    optionHasOverride: false,
+                    optionOverride: "",
+                    optionPlaceholder: "",
+                    optionProp: "fixedNavbar"
+                },
+            ],
+        },
         
     ]
